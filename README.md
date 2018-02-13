@@ -1,0 +1,2 @@
+# ymscoin
+YMS Coin
