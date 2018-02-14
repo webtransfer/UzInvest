@@ -1,2 +1,3 @@
-# ymscoin
-YMS Coin
+# Invest Project
+Invest Project CMS
+Developer @Webtransfer
