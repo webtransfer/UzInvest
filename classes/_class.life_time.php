@@ -15,15 +15,15 @@ class life_time
 		switch ($name) 
 		{
 			case 'a_t':
-				return 60*60*24*365; // 365 дней
+				return 60*60*24*100; // 100 дней
 			break;
 
 			case 'b_t':
-				return 60*60*24*120; // 125 дней
+				return 60*60*24*50; // 50 дней
 			break;
 			
 			case 'c_t':
-				return 60*60*24*150; // 131 дней
+				return 60*60*24*60; // 60 дней
 			break;
 
 			case 'd_t':
@@ -39,7 +39,7 @@ class life_time
 			break;
 
 			case 'g_t':
-				return 60*60*24*125; // 125 дней
+				return 60*60*24*40; // 40 дней
 			break;
 			
 			default:
@@ -54,11 +54,11 @@ class life_time
 		switch ($name) 
 		{
 			case 'a_t':
-				return "SHNET-25";
+				return "UZHOST";
 			break;
 
 			case 'b_t':
-				return "SPRING 17";
+				return "CRYPTO";
 			break;
 
 			case 'c_t':
@@ -78,7 +78,7 @@ class life_time
 			break;
 			
 			case 'g_t':
-				return "Баклажаны";
+				return "FAST";
 			break;
 
 			default:
@@ -139,19 +139,22 @@ class life_time
 		$m = floor($time / 60);
 		$h = floor($m / 60);
 		$d = floor($h / 24);
-		$h = $h - $d*24;
-		$m = $m - $d*24*60 - $h*60;
-		$s = $time - $m*60 - $h*60*60 - $d*24*60*60;
-	if($d != 0) return "$d дней $h ч $m мин $s сек";
-	   if($h != 0) return "$h ч $m мин $s сек";
-	   if($m != 0) return "$m мин $s сек";
-	   if($s != 0) return "$s сек";
+		$y = floor($d / 365);
+		$d = $d - $y*365;
+		$h = $h - $y*24*365 - $d*24;
+		$m = $m - $y*24*60*365 - $d*24*60 - $h*60;
+		$s = $time - $m*60 - $h*60*60 - $d*24*60*60 - $y*24*60*60*365;
+		if($y != 0) return "$y yil $d kun $h soat $m daqiqa $s soniya";
+	if($d != 0) return "$d kun $h soat $m daqiqa $s soniya";
+	   if($h != 0) return "$h s $m min $s sek";
+	   if($m != 0) return "$m min $s sek";
+	   if($s != 0) return "$s sek";
 	}
 
 
 	public function GetTable($user_id)
 	{
-		$style = "<style>.info_block{height: 50px;float: left;margin: 0px 20px 20px 80px;width: 450px;background: rgb(241, 241, 241);border-radius: 20px;} .info_block div{padding: 15px;}</style>";
+		$style = "<style>.info_block{height: 50px;float: center;margin: 0px 20px 20px 80px;width: 500px;background: rgb(241, 241, 241);border-radius: 20px;} .info_block div{padding: 15px;}</style>";
 		$db = $this->db;
 		echo $style;
 		$sql = "select * from `db_product_time` where `status`=1 and `id_user`=$user_id";
@@ -162,7 +165,7 @@ class life_time
 			$tim = $this->ConvertTime($tim);
 			echo "<div class='info_block'>";
 				echo "<div>";
-				echo $this->GetNameItem($row['name'])." - осталось: ".$tim;
+				echo $this->GetNameItem($row['name'])." - Qoldi: ".$tim;
 				echo "</div>";
 			echo "</div>";
 		}

@@ -1,0 +1,88 @@
+.popup.subscribe {
+  margin-left: -342px;
+  width:685px;
+}
+
+.subscribe .sticker {
+  position:relative;
+  height:479px;
+  background:url(../../img/layout/bg_popup_subscribe.png)/*tpa=http://paleo-dieta.info/img/layout/bg_popup_subscribe.png*/ 0 0 no-repeat;
+  font-size:1.2em;
+  line-height:1.2em;
+  text-align:left;
+  color:#393912;
+}
+.subscribe h1 {
+  margin:23px 0 20px 45px;
+  text-align:center;
+  font-size:1.8em;
+}
+.subscribe h2 {
+  padding: 35px 100px 10px 135px;
+  text-align:center;
+  font-size:1.3em;
+  font-style:italic;
+  line-height:1.1em;
+  color:#fff;
+}
+.subscribe_list {
+  margin:0 15px 0 160px;
+}
+.subscribe_list li {
+  list-style-type:none;
+  background:url(../../img/layout/bullet_subscribe.png)/*tpa=http://paleo-dieta.info/img/layout/bullet_subscribe.png*/ 0 3px no-repeat;
+  padding: 0 0 7px 36px;
+}
+
+.subscribe .form-container {
+  width:310px;
+  position:relative;
+  margin: 60px 0 0 95px;
+}
+
+.subscribe .form-container input.sbmt{
+  display: block;
+  width:215px;
+  height:77px;
+  background:transparent url('../../img/btn_subscribe.png')/*tpa=http://paleo-dieta.info/img/btn_subscribe.png*/ no-repeat;
+  border:0;
+  cursor:pointer;
+  position:absolute;
+  left:310px;
+  top:10px;
+}
+.subscribe .preload{
+  display: none;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.subscribe input[type="text"], .subscribe input[type='email'] {
+  width:270px;
+  height:30px;
+  padding: 6px 6px 2px;
+  font-size: 1.1em;
+}
+.bg_arrowred_right {
+  width:109px;
+  height:94px;
+  position:absolute;
+  left:640px;
+  top:295px;
+  background:url(../../img/layout/bg_arrowred_right.png)/*tpa=http://paleo-dieta.info/img/layout/bg_arrowred_right.png*/;
+}
+
+.btn_close_popup {
+  position:absolute;
+  cursor:pointer;
+}
+.btn_close_popup {
+  right:-22px;
+  top: -2px;
+}
+
+.subscribe .button-container {
+  display: none;
+  padding: 80px 0 0 0;
+  text-align: center;
+}

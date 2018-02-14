@@ -1,0 +1,136 @@
+/**
+* Общие стили для инфосайтов.
+* Редактировать содержимое этого файла запрещено.
+*
+* @file ipro/common.css
+* @since 2013-09-17
+* @author Vyacheslav Makhotkin <retardeddude@gmail.com>
+*/
+
+/*
+  Общие элементы промостраниц апселлов
+*/
+.skip-upsell {
+  border-top: 1px solid #d5d5d5;
+  margin: 35px 0 20px 0;
+  padding-top: 15px;
+}
+
+.skip-upsell input[type="checkbox"] {
+  float: left;
+  margin: 4px 10px 0 0;
+}
+
+.skip-upsell label {
+  display: inline-block;
+  font-size: 16px;
+  width: 90%;
+}
+
+.skip-upsell p {
+  color: #75787a;
+  float: left;
+  line-height: 1.2;
+  margin: 0;
+  width: 550px;
+}
+
+.skip-upsell a{
+  float: right;
+}
+/*
+  //
+*/
+
+/* Просьба подтвердить электронный адрес. */
+div.verify-header {
+  background: #fcd000;
+  color: #000;
+  padding: 10px;
+  overflow: hidden;
+  width: auto;
+  zoom: 1;
+}
+
+div.verify-header p {
+  text-align: left;
+}
+
+div.verify-header .action-box {
+  display: none;
+}
+
+div.verify-header .action-box .form-actions {
+  background: none;
+  border: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+div.verify-header .actions {
+  list-style-type: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+div.verify-header .actions li {
+  display: inline-block;
+  margin: 0 15px 0 0;
+}
+
+div.verify-header .inside {
+  margin: 0 auto;
+  text-align: left;
+  width: 926px;
+}
+
+div.verify-header .text {
+  float: left;
+  width: 700px;
+}
+
+div.verify-header .user-email {
+  font-weight: bold;
+}
+
+#quickEmailEdit input[type="text"] {
+  margin-bottom: 0;
+}
+
+/* Общие стили форм */
+.form-actions .loading {
+  background: url(../../img/loading.gif)/*tpa=http://paleo-dieta.info/img/loading.gif*/ no-repeat;
+  display: none;
+  padding: 0 0 0 20px;
+}
+
+/*
+ * Мои заказы
+ */
+.orders {}
+
+.orders p {
+  margin: 0 0 5px 0 !important;
+  padding: 0;
+}
+
+.orders .payment-details {
+  margin-top: 1em;
+}
+
+.orders .phone-edit {
+  display: none;
+}
+
+.orders .processed-id {
+  font-weight: bold;
+}
+
+.orders .product-name {
+  font-size: 1.3em;
+}
+
+.orders .status-name {
+  font-size: 0.8em;
+}

@@ -2,22 +2,22 @@
 class config{
 
 	public $HostDB = "localhost";
-	 public $UserDB = "share1000";
- public $PassDB = "1Y2k0H1g";
- public $BaseDB = "shares100";
+	 public $UserDB = "dbuser";
+ public $PassDB = "dbpass";
+ public $BaseDB = "dbname";
 	
-	public $SYSTEM_START_TIME = "1477285200";
-	public $VAL = "Рубл";
+	public $SYSTEM_START_TIME = "1507285200";
+	public $VAL = "РУБ";
 	
 	# PAYEER настройки
-	public $AccountNumber = 'P4911315';
-	public $apiId = '299451578';
-	public $apiKey = 'GFFz5RikC3uXbPei';
+	public $AccountNumber = 'P1234567';
+	public $apiId = 'ApiID';
+	public $apiKey = 'ApiKey';
 	
-	public $shopID = '256150382';
-	public $secretW = "96aZjoQFWQyrH2Om";
+	public $shopID = 'ShopID';
+	public $secretW = "SecretWord";
 	   # FREE-KASSA
-    public $fk_merchant_id = '5306'; //merchant_id ID мазагина в free-kassa.ru (http://free-kassa.ru/merchant/cabinet/help/)
+    public $fk_merchant_id = 'Merchant ID'; //merchant_id ID мазагина в free-kassa.ru (http://free-kassa.ru/merchant/cabinet/help/)
     public $fk_merchant_key = 'oil1'; //Секретное слово http://free-kassa.ru/merchant/cabinet/profile/tech.php
     public $fk_merchant_key2 = 'oil2'; //Секретное слово2 (result) http://free-kassa.ru/merchant/cabinet/profile/tech.php
 }
