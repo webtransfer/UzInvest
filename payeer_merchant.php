@@ -1,21 +1,21 @@
 <?PHP
 ######################################
-# Скрипт Fruit Farm
-# Автор Rufus
+# Г‘ГЄГ°ГЁГЇГІ Fruit Farm
+# ГЂГўГІГ®Г° Rufus
 # ICQ: 819-374
 # Skype: Rufus272
 ######################################
 
-# Автоподгрузка классов
+# ГЂГўГІГ®ГЇГ®Г¤ГЈГ°ГіГ§ГЄГ  ГЄГ«Г Г±Г±Г®Гў
 function __autoload($name){ include("classes/_class.".$name.".php");}
 
-# Класс конфига 
+# ГЉГ«Г Г±Г± ГЄГ®Г­ГґГЁГЈГ  
 $config = new config;
 
-# Функции
+# Г”ГіГ­ГЄГ¶ГЁГЁ
 $func = new func;
 
-# База данных
+# ГЃГ Г§Г  Г¤Г Г­Г­Г»Гµ
 $db = new db($config->HostDB, $config->UserDB, $config->PassDB, $config->BaseDB);
 
 
@@ -52,7 +52,7 @@ if (isset($_POST["m_operation_id"]) && isset($_POST["m_sign"]))
 	$ik_payment_amount = $payeer_row["sum"];
 	$user_id = $payeer_row["user_id"];
    
-	# Настройки
+	# ГЌГ Г±ГІГ°Г®Г©ГЄГЁ
 	$db->Query("SELECT * FROM db_config WHERE id = '1' LIMIT 1");
 	$sonfig_site = $db->FetchArray();
    
@@ -61,40 +61,40 @@ if (isset($_POST["m_operation_id"]) && isset($_POST["m_sign"]))
    $user_name = $user_ardata["user"];
    $refid = $user_ardata["referer_id"];
    
-   # Зачисляем баланс
+   # Г‡Г Г·ГЁГ±Г«ГїГҐГ¬ ГЎГ Г«Г Г­Г±
    $serebro = sprintf("%.4f", floatval($sonfig_site["ser_per_wmr"] * $ik_payment_amount) );
    
    $db->Query("SELECT insert_sum FROM db_users_b WHERE id = '{$user_id}' LIMIT 1");
    $ins_sum = $db->FetchRow();
    
-   $serebro = intval($ins_sum <= 0.01) ? ($serebro + ($serebro * 0.18) ) : $serebro;
+   $serebro = intval($ins_sum <= 0.01) ? ($serebro + ($serebro * 0.10) ) : $serebro;
    $add_tree = ( $ik_payment_amount >= 499999999999999999999999) ? 2 : 0;
    $lsb = time();
    $to_referer = ($serebro * 0.01);
    
    $db->Query("UPDATE db_users_b SET money_b = money_b + '$serebro', e_t = e_t + '$add_tree', to_referer = to_referer + '$to_referer', last_sbor = '$lsb', insert_sum = insert_sum + '$ik_payment_amount' WHERE id = '{$user_id}'");
-   $limitPercent=50; # процент лимита
+   $limitPercent=50; # ГЇГ°Г®Г¶ГҐГ­ГІ Г«ГЁГ¬ГЁГІГ 
    $newlimit=(intval($ins_sum)+$ik_payment_amount)*$limitPercent/100;
    $db->Query("UPDATE db_users_b SET curlimit = '$newlimit' WHERE id = '{$user_id}'");
    
    
    
-   # Зачисляем средства рефереру и дерево
+   # Г‡Г Г·ГЁГ±Г«ГїГҐГ¬ Г±Г°ГҐГ¤Г±ГІГўГ  Г°ГҐГґГҐГ°ГҐГ°Гі ГЁ Г¤ГҐГ°ГҐГўГ®
    $add_tree_referer = ($ins_sum <= 0.01) ? ", a_t = a_t + 0" : "";
    $db->Query("UPDATE db_users_b SET money_b = money_b + $to_referer, from_referals = from_referals + '$to_referer' {$add_tree_referer} WHERE id = '$refid'");
    
-   # Статистика пополнений
+   # Г‘ГІГ ГІГЁГ±ГІГЁГЄГ  ГЇГ®ГЇГ®Г«Г­ГҐГ­ГЁГ©
    $da = time();
    $dd = $da + 60*60*24*15;
    $db->Query("INSERT INTO db_insert_money (user, user_id, money, serebro, date_add, date_del) 
    VALUES ('$user_name','$user_id','$ik_payment_amount','$serebro','$da','$dd')");
    
-   # Конкурс
+   # ГЉГ®Г­ГЄГіГ°Г±
 $competition = new competition($db);
 $competition->UpdatePoints($user_id, $ik_payment_amount);
 #--------
    
-	# Обновление статистики сайта
+	# ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г±ГІГ ГІГЁГ±ГІГЁГЄГЁ Г±Г Г©ГІГ 
 
 	$db->Query("UPDATE db_stats SET all_insert = all_insert + '$ik_payment_amount' WHERE id = '1'");
 	
