@@ -5,7 +5,7 @@
 <BR />
 <BR />
 <?PHP
-$_OPTIMIZATION["title"] = "Аккаунт - Склад";
+$_OPTIMIZATION["title"] = "РђРєРєР°СѓРЅС‚ - РЎРєР»Р°Рґ";
 $usid = $_SESSION["user_id"];
 
 $db->Query("SELECT * FROM db_users_b WHERE id = '$usid' LIMIT 1");
@@ -64,11 +64,11 @@ $sonfig_site = $db->FetchArray();
 <div class="sm-line"><img src="/img/share/shares100mini.png" /><b>Sizning <font color="green"><?=$user_data["d_t"]; ?></font> ta aksiyangiz</b> <font color="green"> <?=$func->SumCalc($sonfig_site["d_in_h"], $user_data["d_t"], $user_data["last_sbor"]);?> tanga </font> daromad keltirdi.</div>
 <div class="sm-line"><img src="/img/share/shares100mini.png" /><b>Sizning <font color="green"><?=$user_data["f_t"]; ?></font> ta aksiyangiz</b> <font color="green"> <?=$func->SumCalc($sonfig_site["f_in_h"], $user_data["f_t"], $user_data["last_sbor"]);?> tanga </font> daromad keltirdi.</div>
 <div class="sm-line"><img src="/img/share/shares100mini.png" /><b>Sizning <font color="green"><?=$user_data["e_t"]; ?></font> ta aksiyangiz</b> <font color="green"> <?=$func->SumCalc($sonfig_site["e_in_h"], $user_data["e_t"], $user_data["last_sbor"]);?> tanga </font> daromad keltirdi.</div>
-<div class="sm-line"><img src="/img/share/shares100mini.png" /><b>Sizning <font color="green"><?=$user_data["g_t"]; ?></font> ta "2017" aksiyangiz </b> <font color="green"> <?=$func->SumCalc($sonfig_site["g_in_h"], $user_data["g_t"], $user_data["last_sbor"]);?> tanga </font> daromad keltirdi.</div>
+<div class="sm-line"><img src="/img/share/shares100mini.png" /><b>Sizning <font color="green"><?=$user_data["g_t"]; ?></font> ta "FAST" aksiyangiz </b> <font color="green"> <?=$func->SumCalc($sonfig_site["g_in_h"], $user_data["g_t"], $user_data["last_sbor"]);?> tanga </font> daromad keltirdi.</div>
 <div class="clr"></div>
-<center><input type="submit" name="sbor" value="Собрать все" style="height:30px;"/></center>
+<center><input type="submit" name="sbor" value="Divedentlarni olish" style="height:30px;"/></center>
 </form>
-<td colspan="5" align="center" style="padding:5px;">Друзья! Пожалуйста рекламируйте свои ссылки, рассказывайте о проекте друзьям! Приглашайте рефералов! Не забывайте что у нас проводится конкурс <a href=http://investup.biz/competition>рефералов.</a></td>
+<td colspan="5" align="center" style="padding:5px;">Hurmatli investorlar! Loyihani reklama qilib, ommalashishiga ko'maklashing! Do'stlaringizni taklif eting! Maxsus havolani va reklama bannerlarini <a href="/account/ref_ban">reklama materiallari</a> sahifasidan olishingiz mumkin!</td>
                    
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
@@ -93,5 +93,9 @@ $sonfig_site = $db->FetchArray();
 	<td align="center"><b><font color="green"><?=$user_data["g_b"]; ?></font></b></td>
   </tr>
 </table>
+
+<br><hr>
+<td colspan="5" align="center" style="padding:5px;">Tangalarni So'mga almashtirish uchun <a href="/account/market">BANK</a> sahifasidan foydalaning!</td>
+<br>
 <div class="clr"></div>
 </div>
