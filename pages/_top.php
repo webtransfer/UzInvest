@@ -1,10 +1,10 @@
 <?PHP
-$_OPTIMIZATION["title"] = "Топ 10 по вводам/выводам";
-$_OPTIMIZATION["description"] = "Топ 10 по вводам/выводам";
-$_OPTIMIZATION["keywords"] = "Топ 10, по вводам, по выводам";
+$_OPTIMIZATION["title"] = "TOP 10 : Sarmoyadorlar/Daromad/Referal";
+$_OPTIMIZATION["description"] = "РўРѕРї 10 РїРѕ РІРІРѕРґР°Рј/РІС‹РІРѕРґР°Рј";
+$_OPTIMIZATION["keywords"] = "РўРѕРї 10, РїРѕ РІРІРѕРґР°Рј, РїРѕ РІС‹РІРѕРґР°Рј";
 ?>
 <div class="s-bk-lf">
-	<div class="acc-title">TOP 10 Sarmoyadorlar 2017</div>
+	<div class="acc-title">TOP 10 Sarmoyadorlar</div>
 </div>
 <div class="silver-bk"><div class="clr"></div>	
 <table width="99%" border="0" align="center">
@@ -20,7 +20,7 @@ $_OPTIMIZATION["keywords"] = "Топ 10, по вводам, по выводам";
 	<tr class="htt" >
 		<td align="center" width="75"><?=$data['user']; ?></td>
 
-		<td align="center"><b><font color="green"><?=$data["insert_sum"]*145; ?> So`m ~ <?=sprintf("%.2f",$data["insert_sum"]*145/8175); ?> $</font></b></td>
+		<td align="center"><b><font color="green"><?=$data["insert_sum"]*145; ?> So`m ~ <?=sprintf("%.2f",$data["insert_sum"]*145/8188); ?> $</font></b></td>
 	</tr>
 	<?php
 	}
@@ -44,8 +44,8 @@ $_OPTIMIZATION["keywords"] = "Топ 10, по вводам, по выводам";
 	?>
 	<tr class="htt" >
 		<td align="center" width="75"><?=$data['user']; ?></td>
-		<td align="center"><b><?=date("d.m.Y , H:i",$data["date_login"]); ?></b></td>
-		<td align="center"><b><font color="green"><?=$data["payment_sum"]*140; ?> So`m ~ <?=sprintf("%.2f",$data["payment_sum"]*150/8175); ?> $</font></b></td>
+		<td align="center"><b><?=date("d.m.Y , H:i",$data["date_reg"]); ?></b></td>
+		<td align="center"><b><font color="green"><?=$data["payment_sum"]*150; ?> So`m ~ <?=sprintf("%.2f",$data["payment_sum"]*150/8188); ?> $</font></b></td>
 	</tr>
 	<?php
 	}
@@ -70,8 +70,8 @@ $_OPTIMIZATION["keywords"] = "Топ 10, по вводам, по выводам";
 	?>
 	<tr class="htt" >
 		<td align="center" width="75"><?=$data['user']; ?></td>
-		<td align="center"><b><?=$data["money_b"]+$data["money_p"]; ?> So`m</b></td>
-		<td align="center"><b><font color="green"><?=($data["money_b"]+$data["money_p"])/8000; ?> $</font></b></td>
+		<td align="center"><b><?=sprintf("%.2f",($data["money_b"]+$data["money_p"])); ?> So`m</b></td>
+		<td align="center"><b><font color="green"><?=sprintf("%.2f",(($data["money_b"]+$data["money_p"])/8188)); ?> $</font></b></td>
 	</tr>
 	<?php
 	}
@@ -97,7 +97,7 @@ $_OPTIMIZATION["keywords"] = "Топ 10, по вводам, по выводам";
 	<tr class="htt" >
 		<td align="center" width="75"><?=$data['user']; ?></td>
 		<td align="center"><b><?=$data["a_t"]+$data["b_t"]+$data["c_t"]+$data["d_t"]+$data["e_t"]+$data["f_t"]+$data["g_t"]; ?> dona </b></td>
-		<td align="center"><b><font color="green"><?=($data["all_time_a"]+$data["all_time_b"]+$data["all_time_c"]+$data["all_time_d"]+$data["all_time_e"]+$data["all_time_f"]+$data["all_time_g"])/10; ?> So`m ~ <?=($data["all_time_a"]+$data["all_time_b"]+$data["all_time_c"]+$data["all_time_d"]+$data["all_time_e"]+$data["all_time_f"]+$data["all_time_g"])/81750; ?> $</font></b></td>
+		<td align="center"><b><font color="green"><?=($data["all_time_a"]+$data["all_time_b"]+$data["all_time_c"]+$data["all_time_d"]+$data["all_time_e"]+$data["all_time_f"]+$data["all_time_g"])/10; ?> So`m ~ <?=sprintf("%.2f",(($data["all_time_a"]+$data["all_time_b"]+$data["all_time_c"]+$data["all_time_d"]+$data["all_time_e"]+$data["all_time_f"]+$data["all_time_g"])/81750)); ?> $</font></b></td>
 	</tr>
 	<?php
 	}
@@ -122,7 +122,7 @@ $_OPTIMIZATION["keywords"] = "Топ 10, по вводам, по выводам";
 	?>
 	<tr class="htt" >
 		<td align="center" width="75"><?=$data['user']; ?></td>
-		<td align="center"><b><?=$data["from_referals"]; ?> So`m ~ <?=$data["from_referals"]/8000; ?> $</b></td>
+		<td align="center"><b><?=sprintf("%.2f",$data["from_referals"]); ?> So`m ~ <?=sprintf("%.2f",$data["from_referals"]/8175); ?> $</b></td>
 		<td align="center"><b><font color="green"><?=$data["referals"]; ?> nafar</font></b></td>
 	</tr>
 	<?php
@@ -130,6 +130,35 @@ $_OPTIMIZATION["keywords"] = "Топ 10, по вводам, по выводам";
 ?>
 </table>
 </div>
+<br/>
+<div class="s-bk-lf">
+	<div class="acc-title">TOP 10: Kunlik bonus</div>
+</div>
+<div class="silver-bk"><div class="clr"></div>	
+<table width="99%" border="0" align="center">
+  <tr bgcolor="#efefef">
+    <td align="center" class="m-tb"><b>Login</b></td>
+    <td align="center" class="m-tb"><b>Jami kunlik bonus miqdori</b></td>
+    
+  </tr>
+<?php
+	$db->Query("SELECT * FROM `db_users_b`,`db_users_a` WHERE db_users_b.id = db_users_a.id ORDER BY `dailybonus` DESC LIMIT 10 ");
+	while($data = $db->FetchArray()){
+	?>
+	<tr class="htt" >
+		<td align="center" width="75"><?=$data['user']; ?></td>
+		<td align="center"><b><font color="green"><?=$data["dailybonus"]; ?> So`m </font>~ <font color="blue"><?=sprintf("%.2f",$data["dailybonus"]/8180); ?> $</font></b></td>
+		
+		
+	</tr>
+	
+	
+	<?php
+	}
+?>
+</table>
+</div>
+
 <br/>
 <div class="s-bk-lf">
 	<div class="acc-title">TOP 10: Sahovatpeshalar</div>
@@ -147,7 +176,7 @@ $_OPTIMIZATION["keywords"] = "Топ 10, по вводам, по выводам";
 	?>
 	<tr class="htt" >
 		<td align="center" width="75"><?=$data['user']; ?></td>
-		<td align="center"><b><font color="magenta"><?=$data["donations"]; ?> So`m ~ <?=$data["donations"]/8000; ?> $</font></b></td>
+		<td align="center"><b><font color="magenta"><?=$data["donations"]; ?> So`m ~ <?=sprintf("%.2f",$data["donations"]/8180); ?> $</font></b></td>
 		<td align="center"><b><font color="blue">Tashakkur!!!</font></b></td>
 		
 	</tr>
