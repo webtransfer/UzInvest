@@ -34,15 +34,15 @@ $hide_form = false;
 		
 			$sum = rand($bonus_min, rand($bonus_min, $bonus_max) );
 			
-			# Зачилсяем юзеру
+			# Updating user balance and stat
 			$db->Query("UPDATE db_users_b SET money_b = money_b + '$sum' WHERE id = '$usid'");
-			
-			# Вносим запись в список бонусов
+			$db->Query("UPDATE db_users_b SET dailybonus = dailybonus + '$sum' WHERE id = '$usid'");
+			# Updating bonus list
 			
 			
 			$db->Query("INSERT INTO db_bonus_list (user, user_id, sum, date_add, date_del) VALUES ('$uname','$usid','$sum','$dadd','$ddel')");
 			
-			# Случайная очистка устаревших записей
+			# РЎР»СѓС‡Р°Р№РЅР°СЏ РѕС‡РёСЃС‚РєР° СѓСЃС‚Р°СЂРµРІС€РёС… Р·Р°РїРёСЃРµР№
 			$db->Query("DELETE FROM db_bonus_list WHERE date_del < '$dadd'");
 			
 			echo "<center><font color = 'green'><b>Hisobingizga {$sum} so`m bonus qo`shildi.</b></font></center><BR />";
@@ -51,7 +51,7 @@ $hide_form = false;
 			
 		}
 			
-			# Показывать или нет форму
+			# РџРѕРєР°Р·С‹РІР°С‚СЊ РёР»Рё РЅРµС‚ С„РѕСЂРјСѓ
 			if(!$hide_form){
 ?>
 
@@ -113,7 +113,3 @@ $hide_form = false;
 
 <div class="clr"></div>		
 </div>
-
-
-
-
