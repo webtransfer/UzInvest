@@ -1,10 +1,22 @@
 <div class="user-menu">
 	
+	<?
+$usid = $_SESSION["user_id"];
+$usname = $_SESSION["user"];
+
+$db->Query("SELECT * FROM db_users_b WHERE id = '$usid' LIMIT 1");
+$user_data = $db->FetchArray();
+
+$db->Query("SELECT * FROM wmrush_pm WHERE user_id_in = '$usid' AND status = 0 AND inbox = 1");
+	$sk = $db->NumRows();
+	if ($sk > 0) {$pmm = '<font color="red">('.$sk.')</font>';} else {$pmm = '<font color="green">(0)</font>';}
+?>
+	
 	 <p class="headbl">Bo'limlar</p>
       <ul>
                 
                 <li><a href="/account">Mening hisobim</a></li>
-                <li><a href="/account/pm">Pochta</a></li>
+                <li><a href="/account/pm">Pochta</a> <sup><?=$pmm; ?></sup></li>
                 <li><a href="/account/bonus">Kunlik bonus <sup><font color="red"><b> new</b></font></sup></a></li>
                 <li><a href="/account/farm">Aksiyalar birjasi</a></li>
                 <li><a href="/account/life">Aksiyalarim</a></li>
@@ -48,11 +60,11 @@
  <p class="headbl">Hisobingiz holati</p>
       <ul>
                 
-                <li>{!BALANCE_B!}<font color="green"> so`m<b> </b></font><font color="blue"> - sotib olish uchun</li></font>
+                <li><font color="blue">Asosiy: </font> <font color="green">{!BALANCE_B!} So'm</font></li>
                 <li><a href="/account/insert"><font color="red">Hisobni to`ldirish</font></a></li>
-                <li>{!BALANCE_P!}<font color="green"><b> so`m</b></font><font color="blue"> - yechib olish uchun</li></font>
+                <li><font color="blue">Ikkilamchi: </font> <font color="green">{!BALANCE_P!} So'm</font></li>
                 <li><a href="/account/payment"><font color="red">Hisobdan yechib olish</font></a></li>
-                <li><a href="/account/swap"><font color="blue">Yechib olish hisobidan sotib olish hisobiga o'tkazish</a></li></font>
+                <li><a href="/account/swap"><font color="blue">Ikkilamchi hisobdan asosiy hisobga o'tkazish</a></li></font>
                 
                
               </ul>
