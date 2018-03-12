@@ -14,7 +14,7 @@ $sonfig_site = $db->FetchArray();
 <div class="s-bk-lf">
 	<div class="acc-title">BANK</div>
 </div>
-<div class="silver-bk">Bank orqali siz <font color="blue">Tanga</font>laringizni <font color="green">So'm</font>ga almashtirishingiz mumkin. Almashtirishdan tushgan mablag' "Aosiy hisob" va "Ikkilamchi hisob" orasida mos ravishda   <?=100-$sonfig_site["percent_sell"]; ?>%  va <?=$sonfig_site["percent_sell"]; ?>% nisbatda taqsimlanadi.<br /><br />
+<div class="silver-bk" align="center">Bank orqali siz <font color="blue">Tanga</font>laringizni <font color="green">So'm</font>ga almashtirishingiz mumkin. Almashtirishdan tushgan mablag' "Asosiy hisob" va "Ikkilamchi hisob" orasida mos ravishda   <?=100-$sonfig_site["percent_sell"]; ?>%  va <?=$sonfig_site["percent_sell"]; ?>% nisbatda taqsimlanadi.<br /><br />
 Bank kursi: <b><font color="green"><?=$sonfig_site["items_per_coin"]; ?> Tanga = 1 <font color="blue">So'm</font>.</font></b>
 <div class="clr"></div><BR />
 <?PHP
