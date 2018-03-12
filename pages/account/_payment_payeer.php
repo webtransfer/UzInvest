@@ -1,10 +1,10 @@
 <div class="s-bk-lf">
-	<div class="acc-title">Заказ выплаты</div>
+	<div class="acc-title">Р—Р°РєР°Р· РІС‹РїР»Р°С‚С‹</div>
 </div>
 <div class="silver-bk">
 
 <?PHP
-$_OPTIMIZATION["title"] = "Аккаунт - Заказ выплаты";
+$_OPTIMIZATION["title"] = "РђРєРєР°СѓРЅС‚ - Р—Р°РєР°Р· РІС‹РїР»Р°С‚С‹";
 $usid = $_SESSION["user_id"];
 $usname = $_SESSION["user"];
 
@@ -17,23 +17,23 @@ $user_dataa = $db->FetchArray();
 $db->Query("SELECT * FROM db_config WHERE id = '1' LIMIT 1");
 $sonfig_site = $db->FetchArray();
 
-$status_array = array( 0 => "Проверяется", 1 => "Выплачивается", 2 => "Отменена", 3 => "Выплачено");
+$status_array = array( 0 => "РџСЂРѕРІРµСЂСЏРµС‚СЃСЏ", 1 => "Р’С‹РїР»Р°С‡РёРІР°РµС‚СЃСЏ", 2 => "РћС‚РјРµРЅРµРЅР°", 3 => "Р’С‹РїР»Р°С‡РµРЅРѕ");
 
-# Минималка серебром!
+# РњРёРЅРёРјР°Р»РєР° СЃРµСЂРµР±СЂРѕРј!
 $minPay = 0; 
 
 ?>
-<center><a href="/account/paymentz">Вернутся на страницу Вывода средств</a></center>
-<center><h1><span style="font-size: 17pt;"><b>Выплата на PAYEER.COM</b></span></h1></center> <BR />
-<b>Выплаты на PAYEER.COM осуществляются без комисии.<br/>
-Минималка для выплаты на Payeer.COM 0<font color="blue"><b>C</b></font>.<br/>
-<font color=red>Выплаты производятся автоматически</font>.</b><BR />
-<b>Ссылки на учебные материалы:</b><BR />
- - <a href="http://wm-payeer.ru/" target="_blank">О системе PAYEER</a> <BR />
- - <a href="http://wm-payeer.ru/index/sozdanie_scheta/0-5" target="_blank">Создание счета в PAYEER</a> <BR />
- - <a href="http://wm-payeer.ru/index/vyvod_sredstv/0-6" target="_blank">Вывод средств из PAYEER</a> <BR /><BR />
+<center><a href="/account/paymentz">Р’РµСЂРЅСѓС‚СЃСЏ РЅР° СЃС‚СЂР°РЅРёС†Сѓ Р’С‹РІРѕРґР° СЃСЂРµРґСЃС‚РІ</a></center>
+<center><h1><span style="font-size: 17pt;"><b>Р’С‹РїР»Р°С‚Р° РЅР° PAYEER.COM</b></span></h1></center> <BR />
+<b>Р’С‹РїР»Р°С‚С‹ РЅР° PAYEER.COM РѕСЃСѓС‰РµСЃС‚РІР»СЏСЋС‚СЃСЏ Р±РµР· РєРѕРјРёСЃРёРё.<br/>
+РњРёРЅРёРјР°Р»РєР° РґР»СЏ РІС‹РїР»Р°С‚С‹ РЅР° Payeer.COM 0<font color="blue"><b>C</b></font>.<br/>
+<font color=red>Р’С‹РїР»Р°С‚С‹ РїСЂРѕРёР·РІРѕРґСЏС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё</font>.</b><BR />
+<b>РЎСЃС‹Р»РєРё РЅР° СѓС‡РµР±РЅС‹Рµ РјР°С‚РµСЂРёР°Р»С‹:</b><BR />
+ - <a href="http://wm-payeer.ru/" target="_blank">Рћ СЃРёСЃС‚РµРјРµ PAYEER</a> <BR />
+ - <a href="http://wm-payeer.ru/index/sozdanie_scheta/0-5" target="_blank">РЎРѕР·РґР°РЅРёРµ СЃС‡РµС‚Р° РІ PAYEER</a> <BR />
+ - <a href="http://wm-payeer.ru/index/vyvod_sredstv/0-6" target="_blank">Р’С‹РІРѕРґ СЃСЂРµРґСЃС‚РІ РёР· PAYEER</a> <BR /><BR />
 
-<center><b>Заказ выплаты:</b></center><BR />
+<center><b>Р—Р°РєР°Р· РІС‹РїР»Р°С‚С‹:</b></center><BR />
 
 <?PHP
 	
@@ -45,7 +45,7 @@ $minPay = 0;
 	}
 	
 	
-	# Заносим выплату
+	# Р—Р°РЅРѕСЃРёРј РІС‹РїР»Р°С‚Сѓ
 	if(isset($_POST["purse"])){
 		
 		$purse = ViewPurse($_POST["purse"]);
@@ -62,12 +62,12 @@ $minPay = 0;
 					
 						if($sum <= $user_data["money_p"]){
 							
-							# Проверяем на существующие заявки
+							# РџСЂРѕРІРµСЂСЏРµРј РЅР° СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ Р·Р°СЏРІРєРё
 							$db->Query("SELECT COUNT(*) FROM db_payment WHERE user_id = '$usid' AND (status = '0' OR status = '1')");
 							if($db->FetchRow() == 0){
 									
 									
-								### Делаем выплату ###	
+								### Р”РµР»Р°РµРј РІС‹РїР»Р°С‚Сѓ ###	
 								$payeer = new rfs_payeer($config->AccountNumber, $config->apiId, $config->apiKey);
 								if ($payeer->isAuth())
 								{
@@ -84,27 +84,27 @@ $minPay = 0;
 										
 										
 										$arTransfer = $payeer->transfer(array(
-										'curIn' => 'RUB', // счет списания
-										'sum' => $sum_pay, // сумма получения
-										'curOut' => 'RUB', // валюта получения
-										'to' => $purse, // получатель (email)
-										//'to' => '+71112223344',  // получатель (телефон)
-										//'to' => 'P1000000',  // получатель (номер счета)
-										'comment' => iconv('windows-1251', 'utf-8', "Выплата пользователю {$usname} с проекта Money-Ferma.RU")
-										//'anonim' => 'Y', // анонимный перевод
-										//'protect' => 'Y', // протекция сделки
-										//'protectPeriod' => '3', // период протекции (от 1 до 30 дней)
-										//'protectCode' => '12345', // код протекции
+										'curIn' => 'RUB', // СЃС‡РµС‚ СЃРїРёСЃР°РЅРёСЏ
+										'sum' => $sum_pay, // СЃСѓРјРјР° РїРѕР»СѓС‡РµРЅРёСЏ
+										'curOut' => 'RUB', // РІР°Р»СЋС‚Р° РїРѕР»СѓС‡РµРЅРёСЏ
+										'to' => $purse, // РїРѕР»СѓС‡Р°С‚РµР»СЊ (email)
+										//'to' => '+71112223344',  // РїРѕР»СѓС‡Р°С‚РµР»СЊ (С‚РµР»РµС„РѕРЅ)
+										//'to' => 'P1000000',  // РїРѕР»СѓС‡Р°С‚РµР»СЊ (РЅРѕРјРµСЂ СЃС‡РµС‚Р°)
+										'comment' => iconv('windows-1251', 'utf-8', "Р’С‹РїР»Р°С‚Р° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ {$usname} СЃ РїСЂРѕРµРєС‚Р° Money-Ferma.RU")
+										//'anonim' => 'Y', // Р°РЅРѕРЅРёРјРЅС‹Р№ РїРµСЂРµРІРѕРґ
+										//'protect' => 'Y', // РїСЂРѕС‚РµРєС†РёСЏ СЃРґРµР»РєРё
+										//'protectPeriod' => '3', // РїРµСЂРёРѕРґ РїСЂРѕС‚РµРєС†РёРё (РѕС‚ 1 РґРѕ 30 РґРЅРµР№)
+										//'protectCode' => '12345', // РєРѕРґ РїСЂРѕС‚РµРєС†РёРё
 										));
 										
 											if (!empty($arTransfer["historyId"]))
 											{	
 											
 											
-												# Снимаем с пользователя
+												# РЎРЅРёРјР°РµРј СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 												$db->Query("UPDATE db_users_b SET money_p = money_p - '$sum' WHERE id = '$usid'");
 												
-												# Вставляем запись в выплаты
+												# Р’СЃС‚Р°РІР»СЏРµРј Р·Р°РїРёСЃСЊ РІ РІС‹РїР»Р°С‚С‹
 												$da = time();
 												$dd = $da + 60*60*24*15;
 												
@@ -116,53 +116,53 @@ $minPay = 0;
 												$db->Query("UPDATE db_users_b SET payment_sum = payment_sum + '$sum_pay' WHERE id = '$usid'");
 												$db->Query("UPDATE db_stats SET all_payments = all_payments + '$sum_pay' WHERE id = '1'");
 												
-												echo "<center><font color = 'green'><b>Выплачено! Пожалуйста загрузите скрин выплаты на форум MMGP <a href=http://mmgp.ru/showthread.php?t=236605>http://mmgp.ru/showthread.php?t=236605</a>.</b></font></center><BR />";
+												echo "<center><font color = 'green'><b>Р’С‹РїР»Р°С‡РµРЅРѕ! РџРѕР¶Р°Р»СѓР№СЃС‚Р° Р·Р°РіСЂСѓР·РёС‚Рµ СЃРєСЂРёРЅ РІС‹РїР»Р°С‚С‹ РЅР° С„РѕСЂСѓРј MMGP <a href=http://mmgp.ru/showthread.php?t=236605>http://mmgp.ru/showthread.php?t=236605</a>.</b></font></center><BR />";
 												
 											}
 											else
 											{
 											
-												echo "<center><font color = 'red'><b>Внутреняя ошибка - сообщите о ней администратору!</b></font></center><BR />";	
+												echo "<center><font color = 'red'><b>Р’РЅСѓС‚СЂРµРЅСЏСЏ РѕС€РёР±РєР° - СЃРѕРѕР±С‰РёС‚Рµ Рѕ РЅРµР№ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ!</b></font></center><BR />";	
 											
 											}
 										
 										
-										}else echo "<center><font color = 'red'><b>Внутреняя ошибка - пожалуйста повторите!</b></font></center><BR />";
+										}else echo "<center><font color = 'red'><b>Р’РЅСѓС‚СЂРµРЅСЏСЏ РѕС€РёР±РєР° - РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРІС‚РѕСЂРёС‚Рµ!</b></font></center><BR />";
 										
-									}else echo "<center><font color = 'red'><b>Не удалось выплатить! Попробуйте позже</b></font></center><BR />";
+									}else echo "<center><font color = 'red'><b>РќРµ СѓРґР°Р»РѕСЃСЊ РІС‹РїР»Р°С‚РёС‚СЊ! РџРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕР·Р¶Рµ</b></font></center><BR />";
 									
-								}else echo "<center><font color = 'red'><b>Не удалось выплатить! Попробуйте позже</b></font></center><BR />";
+								}else echo "<center><font color = 'red'><b>РќРµ СѓРґР°Р»РѕСЃСЊ РІС‹РїР»Р°С‚РёС‚СЊ! РџРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕР·Р¶Рµ</b></font></center><BR />";
 								
 									
-							}else echo "<center><font color = 'red'><b>У вас имеются необработанные заявки. Дождитесь их выполнения.</b></font></center><BR />";
+							}else echo "<center><font color = 'red'><b>РЈ РІР°СЃ РёРјРµСЋС‚СЃСЏ РЅРµРѕР±СЂР°Р±РѕС‚Р°РЅРЅС‹Рµ Р·Р°СЏРІРєРё. Р”РѕР¶РґРёС‚РµСЃСЊ РёС… РІС‹РїРѕР»РЅРµРЅРёСЏ.</b></font></center><BR />";
 								
 							
-						}else echo "<center><font color = 'red'><b>Вы указали больше, чем имеется на вашем счету</b></font></center><BR />";
+						}else echo "<center><font color = 'red'><b>Р’С‹ СѓРєР°Р·Р°Р»Рё Р±РѕР»СЊС€Рµ, С‡РµРј РёРјРµРµС‚СЃСЏ РЅР° РІР°С€РµРј СЃС‡РµС‚Сѓ</b></font></center><BR />";
 					
-					}else echo "<center><b><font color = 'red'>Минимальная сумма для выплаты составляет {$minPay} кредитов!</font></b></center><BR />";
+					}else echo "<center><b><font color = 'red'>РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° РґР»СЏ РІС‹РїР»Р°С‚С‹ СЃРѕСЃС‚Р°РІР»СЏРµС‚ {$minPay} РєСЂРµРґРёС‚РѕРІ!</font></b></center><BR />";
 			
-			}else echo "<center><b><font color = 'red'>Кошелек указан неверно! Смотрите образец!</font></b></center><BR />";
-		}else echo "<center><b><font color = 'red'>Платежный пароль указан не верно!</font></b></center><BR />";
+			}else echo "<center><b><font color = 'red'>РљРѕС€РµР»РµРє СѓРєР°Р·Р°РЅ РЅРµРІРµСЂРЅРѕ! РЎРјРѕС‚СЂРёС‚Рµ РѕР±СЂР°Р·РµС†!</font></b></center><BR />";
+		}else echo "<center><b><font color = 'red'>РџР»Р°С‚РµР¶РЅС‹Р№ РїР°СЂРѕР»СЊ СѓРєР°Р·Р°РЅ РЅРµ РІРµСЂРЅРѕ!</font></b></center><BR />";
 	}
 ?>
 <?php
 if($user_dataa['plat_pass'] == 0) {
-echo "<center><b><font color = 'red'>Укажите платежный пароль в профиле!</font></b></center><BR />";
+echo "<center><b><font color = 'red'>РЈРєР°Р¶РёС‚Рµ РїР»Р°С‚РµР¶РЅС‹Р№ РїР°СЂРѕР»СЊ РІ РїСЂРѕС„РёР»Рµ!</font></b></center><BR />";
 } else {
 
 ?>
 <form action="" method="post">
 <table width="99%" border="0" align="center">
   <tr>
-    <td><font color="#000;">Введите кошелек [Пример: P1112457]</font>: </td>
+    <td><font color="#000;">Р’РІРµРґРёС‚Рµ РєРѕС€РµР»РµРє [РџСЂРёРјРµСЂ: P1112457]</font>: </td>
 	<td><input type="text" name="purse" size="15"/></td>
   </tr>
   <tr>
-    <td><font color="#000;">Отдаете кредиты для вывода</font> [Мин. 0]<font color="#000;">:</font> </td>
+    <td><font color="#000;">РћС‚РґР°РµС‚Рµ РєСЂРµРґРёС‚С‹ РґР»СЏ РІС‹РІРѕРґР°</font> [РњРёРЅ. 0]<font color="#000;">:</font> </td>
 	<td><input type="text" name="sum" id="sum" value="0" size="15" onkeyup="PaymentSum();" /></td>
   </tr>
   <tr>
-    <td><font color="#000;">Получаете [RUR]<span id="res_val"></span></font><font color="#000;">:</font> </td>
+    <td><font color="#000;">РџРѕР»СѓС‡Р°РµС‚Рµ [RUR]<span id="res_val"></span></font><font color="#000;">:</font> </td>
 	<td>
 	<input type="text" name="res" id="res_sum" value="0" size="15" disabled="disabled"/>
 	<input type="hidden" name="per" id="RUB" value="<?=$sonfig_site["ser_per_wmr"]; ?>" disabled="disabled"/>
@@ -172,24 +172,24 @@ echo "<center><b><font color = 'red'>Укажите платежный пароль в профиле!</font><
   </tr>
   
   <tr>
-    <td><font color="#000;">Платежный пароль[указывается в профиле]</font>: </td>
+    <td><font color="#000;">РџР»Р°С‚РµР¶РЅС‹Р№ РїР°СЂРѕР»СЊ[СѓРєР°Р·С‹РІР°РµС‚СЃСЏ РІ РїСЂРѕС„РёР»Рµ]</font>: </td>
 	<td><input type="text" name="plat_pass" size="15"/></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><input type="submit" name="swap" value="Заказать выплату" style="height: 30px; margin-top:10px;" /></td>
+    <td colspan="2" align="center"><input type="submit" name="swap" value="Р—Р°РєР°Р·Р°С‚СЊ РІС‹РїР»Р°С‚Сѓ" style="height: 30px; margin-top:10px;" /></td>
   </tr>
 </table>
 </form>
 <?php } ?>
 <table cellpadding='3' cellspacing='0' border='0' bordercolor='#336633' align='center' width="99%">
   <tr>
-    <td colspan="5" align="center"><h1>Ваши последние выплаты</h1></td>
+    <td colspan="5" align="center"><h1>Р’Р°С€Рё РїРѕСЃР»РµРґРЅРёРµ РІС‹РїР»Р°С‚С‹</h1></td>
     </tr>
   <tr>
-    <td align="center" class="m-tb">Сумма</td>
-	<td align="center" class="m-tb">Игрок</td>
-	<td align="center" class="m-tb">Кошелек</td>
-	<td align="center" class="m-tb">Статус</td>
+    <td align="center" class="m-tb">РЎСѓРјРјР°</td>
+	<td align="center" class="m-tb">РРіСЂРѕРє</td>
+	<td align="center" class="m-tb">РљРѕС€РµР»РµРє</td>
+	<td align="center" class="m-tb">РЎС‚Р°С‚СѓСЃ</td>
   </tr>
   <?PHP
   
@@ -210,7 +210,7 @@ echo "<center><b><font color = 'red'>Укажите платежный пароль в профиле!</font><
 		
 		}
   
-	}else echo '<tr><td align="center" colspan="5">Нет записей</td></tr>'
+	}else echo '<tr><td align="center" colspan="5">РќРµС‚ Р·Р°РїРёСЃРµР№</td></tr>'
   
   ?>
 
