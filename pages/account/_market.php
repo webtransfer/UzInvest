@@ -14,10 +14,8 @@ $sonfig_site = $db->FetchArray();
 <div class="s-bk-lf">
 	<div class="acc-title">BANK</div>
 </div>
-<div class="silver-bk">Bank orqali siz <font color="blue">Tanga</font>laringizni <font color="green">So'm</font>ga almashtirishingiz mumkin.бменять на реальные 
-деньги. Вырученные с продажи <font color="blue">mCoin</font> распределяются между двумя счетами (счет для покупок и счет 
-для вывода) в пропорциях: <?=100-$sonfig_site["percent_sell"]; ?>% на счет для покупок и <?=$sonfig_site["percent_sell"]; ?>% на вывод.<br /><br />
-Курс обмена: <b><font color="green"><?=$sonfig_site["items_per_coin"]; ?> mCoin = 1 <font color="blue">Coin</font>.</font></b>
+<div class="silver-bk">Bank orqali siz <font color="blue">Tanga</font>laringizni <font color="green">So'm</font>ga almashtirishingiz mumkin. Almashtirishdan tushgan mablag' "Aosiy hisob" va "Ikkilamchi hisob" orasida mos ravishda   <?=100-$sonfig_site["percent_sell"]; ?>%  va <?=$sonfig_site["percent_sell"]; ?>% nisbatda taqsimlanadi.<br /><br />
+Bank kursi: <b><font color="green"><?=$sonfig_site["items_per_coin"]; ?> Tanga = 1 <font color="blue">So'm</font>.</font></b>
 <div class="clr"></div><BR />
 <?PHP
 # Продажа
@@ -51,12 +49,12 @@ $all_items = $user_data["a_b"] + $user_data["b_b"] + $user_data["c_b"] + $user_d
 		$db->Query("INSERT INTO db_sell_items (user, user_id, a_s, b_s, c_s, d_s, e_s, f_s, g_s, amount, all_sell, date_add, date_del) VALUES 
 		('$usname','$usid','$tomat_b','$straw_b','$pump_b','$pean_b','$peas_b','$peach_b','$watermelon_b','$money_add','$all_items','$da','$dd')");
 		
-		echo "<center><font color = 'green'><b>Вы обменяли {$all_items} mCOinов, на сумму {$money_add} Coinов</b></font></center><BR />";
+		echo "<center><font color = 'green'><b>Siz {$all_items} tangani {$money_add} So'mga muvaffaqiyatli almashtirdingiz</b></font></center><BR />";
 		
 		$db->Query("SELECT * FROM db_users_b WHERE id = '$usid' LIMIT 1");
 		$user_data = $db->FetchArray();
 		
-	}else echo "<center><font color = 'red'><b>Вам ничего обменять :(</b></font></center><BR />";
+	}else echo "<center><font color = 'red'><b>Sizda almashtirish uchun tangalar mavjud emas :(</b></font></center><BR />";
 
 }
 ?>	       
@@ -64,8 +62,8 @@ $all_items = $user_data["a_b"] + $user_data["b_b"] + $user_data["c_b"] + $user_d
 <table width="480" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td height="30" align="center" valign="middle">&nbsp;</td>
-    <td height="30" align="center" valign="middle"><h1><strong>У вас в наличии</strong></h1></font></td>
-    <td height="30" align="center" valign="middle"><h1><strong>На сумму (в кредитах)</strong></h1><td>
+    <td height="30" align="center" valign="middle"><h1><strong>Sizdagi tangalar</strong></h1></font></td>
+    <td height="30" align="center" valign="middle"><h1><strong>Hisobingizga qo'shiladi [So'm]</strong></h1><td>
   </tr>
   <tr>
     <td width="30" height="30" align="center" valign="middle"><div class="sm-line-nt"><img src="/img/share/shares100mini.png" /></div></td>
@@ -106,7 +104,7 @@ $all_items = $user_data["a_b"] + $user_data["b_b"] + $user_data["c_b"] + $user_d
   <tr>
     <td align="center" valign="middle" colspan="3">
 	<BR />
-	<input type="submit" name="sell" value="Продать все" class="button_0" style="height: 30px;"></td>
+	<input type="submit" name="sell" value="Barchasini almashtirish" class="button_0" style="height: 30px;"></td>
   </tr>
   
 </table>
