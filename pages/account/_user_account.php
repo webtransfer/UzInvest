@@ -8,7 +8,7 @@ $prof_data = $db->FetchArray();
 									<div class="acc-title">Mening hisobim</div>
 								</div>
 								<div class="silver-bk">
-								<p><center><font color="black"><b>Ro`yhatdan o`tgan vaqtingiz:</b></font> <font color="green"><?=date("d.m.Y â H:i:s",$prof_data["date_reg"]); ?></font></center></p>
+								<p><center><font color="black"><b>Ro`yhatdan o`tgan vaqtingiz:</b></font> <font color="green"><?=date("d.m.Y Ð² H:i:s",$prof_data["date_reg"]); ?></font></center></p>
 
 <table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr><td colspan="2" align="center">&nbsp;</td></tr>
@@ -31,7 +31,7 @@ $prof_data = $db->FetchArray();
   </td>
   </tr>
   <tr>
-    <td align="left" style="padding:3px;"><b>Balans (Sotib olish):</b></td>
+    <td align="left" style="padding:3px;"><b>Asosiy hisob:</b></td>
     <td align="left" style="padding:3px;"><font color="green"><?=sprintf("%.2f",$prof_data["money_b"]); ?><font color="blue"><b> so`m</b></font></font> [<a href="/account/insert">Hisobni to`ldirish</a>]</td>
   </tr>
    <tr>
@@ -40,7 +40,7 @@ $prof_data = $db->FetchArray();
   </td>
   </tr>
   <tr>
-    <td align="left" style="padding:3px;"><b>Balans (Yechib olish):</b></td>
+    <td align="left" style="padding:3px;"><b>Ikkilamchi hisob:</b></td>
     <td align="left" style="padding:3px;"><font color="green"><?=sprintf("%.2f",$prof_data["money_p"]); ?><font color="blue"><b> so`m</b></font></font> [<a href="/account/payment">Pulni yechib olish</a>]</td>
   </tr>
    <tr>
@@ -58,7 +58,7 @@ $prof_data = $db->FetchArray();
   </td>
   </tr>
     <tr>
-    <td align="left" style="padding:3px;"><b>To`landi:</b></td>
+    <td align="left" style="padding:3px;"><b>Yechib olindi:</b></td>
     <td align="left" style="padding:3px;"><font color="green"><?=sprintf("%.2f",$prof_data["payment_sum"]*150); ?><font color="blue"><b> so`m</b></font></font></td>
   </tr>
    <tr>
