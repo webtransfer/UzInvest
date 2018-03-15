@@ -20,6 +20,7 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 
 	$login = $func->IsLogin($_POST["login"]);
 	$pass = $func->IsPassword($_POST["pass"]);
+	$md5pass = md5(md5($reg_pass));
 	$rules = isset($_POST["rules"]) ? true : false;
 	$time = time();
 	$ip = $func->UserIP;
@@ -51,7 +52,7 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 						
 						# Foydalanuvchini ro`yhatga olamiz
 						$db->Query("INSERT INTO db_users_a (user, email, pass, referer, referer_id, date_reg, ip) 
-						VALUES ('$login','{$email}','$pass','$referer_name','$referer_id','$time',INET_ATON('$ip'))");
+						VALUES ('$login','{$email}','$md5pass','$referer_name','$referer_id','$time',INET_ATON('$ip'))");
 						
 						$lid = $db->LastInsert();
 						# BONUS belgilaymiz
@@ -97,7 +98,7 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
   <div class="presentation">
   
 
-    <div class="i-can">invest.webtransfer.uz</div>
+    <div class="i-can">UzChange.Ru - Xavfsiz sarmoya!!!</div>
 
     <div class="arrow">
       <span class="date">Aksiya sotib oling!</span>
