@@ -1,7 +1,7 @@
 <?PHP
-$_OPTIMIZATION["title"] = "Регистрация";
-$_OPTIMIZATION["description"] = "Регистрация пользователя в системе";
-$_OPTIMIZATION["keywords"] = "Регистрация нового участника в системе";
+$_OPTIMIZATION["title"] = "Ro'yhatdan o'tish";
+$_OPTIMIZATION["description"] = "Loyihaga qo'`'shilish";
+$_OPTIMIZATION["keywords"] = "Loyihaga qo'shilish, ro'yhatdan o'tish";
 
 if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 ?>
