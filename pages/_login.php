@@ -1,12 +1,12 @@
 <?PHP
-$_OPTIMIZATION["title"] = "Авторизация";
-$_OPTIMIZATION["description"] = "Вход в аккаунт";
-$_OPTIMIZATION["keywords"] = "Вход в аккаунт";
+$_OPTIMIZATION["title"] = "РђРІС‚РѕСЂРёР·Р°С†РёСЏ";
+$_OPTIMIZATION["description"] = "Р’С…РѕРґ РІ Р°РєРєР°СѓРЅС‚";
+$_OPTIMIZATION["keywords"] = "Р’С…РѕРґ РІ Р°РєРєР°СѓРЅС‚";
 
 if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 ?>
 <div class="s-bk-lf">
-	<div class="acc-title">Авторизация</div>
+	<div class="acc-title">Kirish</div>
 </div>
 <div class="silver-bk">
 <?PHP
@@ -26,7 +26,7 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 				
 					if($log_data["banned"] == 0){
 						
-						# Считаем рефералов
+						# РЎС‡РёС‚Р°РµРј СЂРµС„РµСЂР°Р»РѕРІ
 						$db->Query("SELECT COUNT(*) FROM db_users_a WHERE referer_id = '".$log_data["id"]."'");
 						$refs = $db->FetchRow();
 						
@@ -37,13 +37,13 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 						$_SESSION["referer_id"] = $log_data["referer_id"];
 						Header("Location: /account");
 						
-					}else echo "<center><font color = 'red'><b>Вы забанены!</b></font></center><BR />";
+					}else echo "<center><font color = 'red'><b>Р’С‹ Р·Р°Р±Р°РЅРµРЅС‹!</b></font></center><BR />";
 				
-				}else echo "<center><font color = 'red'><b>Email и/или Пароль указан неверно</b></font></center><BR />";
+				}else echo "<center><font color = 'red'><b>Email Рё/РёР»Рё РџР°СЂРѕР»СЊ СѓРєР°Р·Р°РЅ РЅРµРІРµСЂРЅРѕ</b></font></center><BR />";
 			
-			}else echo "<center><font color = 'red'><b>Указанный Email не зарегистрирован в системе</b></font></center><BR />";
+			}else echo "<center><font color = 'red'><b>РЈРєР°Р·Р°РЅРЅС‹Р№ Email РЅРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ РІ СЃРёСЃС‚РµРјРµ</b></font></center><BR />";
 			
-		}else echo "<center><font color = 'red'><b>Email указан неверно</b></font></center><BR />";
+		}else echo "<center><font color = 'red'><b>Email СѓРєР°Р·Р°РЅ РЅРµРІРµСЂРЅРѕ</b></font></center><BR />";
 	
 	}
 
@@ -59,12 +59,12 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
   </tr>
   
   <tr>
-    <td colspan="2">Пароль [<a href="/recovery" class="rs-ps">Забыли пароль?</a>]:<BR /><input name="pass" type="password" size="23" maxlength="35" class="ps"/></td>
+    <td colspan="2">РџР°СЂРѕР»СЊ [<a href="/recovery" class="rs-ps">Р—Р°Р±С‹Р»Рё РїР°СЂРѕР»СЊ?</a>]:<BR /><input name="pass" type="password" size="23" maxlength="35" class="ps"/></td>
   </tr>
 
   <tr height="5">
-    <td align="center" valign="top"><input type="submit" value="Войти" class="button-blue"/></form></td>
-    <td align="center" valign="top"><form action="/signup" method="post"><input type="submit" value="Регистрация" class="button-blue"/></form></td>
+    <td align="center" valign="top"><input type="submit" value="Р’РѕР№С‚Рё" class="button-blue"/></form></td>
+    <td align="center" valign="top"><form action="/signup" method="post"><input type="submit" value="Р РµРіРёСЃС‚СЂР°С†РёСЏ" class="button-blue"/></form></td>
   </tr>
   
 </table>
