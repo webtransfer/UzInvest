@@ -1,7 +1,7 @@
 <?PHP
-$_OPTIMIZATION["title"] = "Авторизация";
-$_OPTIMIZATION["description"] = "Вход в аккаунт";
-$_OPTIMIZATION["keywords"] = "Вход в аккаунт";
+$_OPTIMIZATION["title"] = "Kirish";
+$_OPTIMIZATION["description"] = "Hisobga kirish";
+$_OPTIMIZATION["keywords"] = "Hisobga kirish";
 
 if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 ?>
@@ -37,9 +37,9 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 						$_SESSION["referer_id"] = $log_data["referer_id"];
 						Header("Location: /account");
 						
-					}else echo "<center><font color = 'red'><b>Вы забанены!</b></font></center><BR />";
+					}else echo "<center><font color = 'red'><b>Hisobingiz bloklangan!</b></font></center><BR />";
 				
-				}else echo "<center><font color = 'red'><b>Email и/или Пароль указан неверно</b></font></center><BR />";
+				}else echo "<center><font color = 'red'><b>Parol xato kiritildi!</b></font></center><BR />";
 			
 			}else echo "<center><font color = 'red'><b>Указанный Email не зарегистрирован в системе</b></font></center><BR />";
 			
@@ -59,12 +59,12 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
   </tr>
   
   <tr>
-    <td colspan="2">Пароль [<a href="/recovery" class="rs-ps">Забыли пароль?</a>]:<BR /><input name="pass" type="password" size="23" maxlength="35" class="ps"/></td>
+    <td colspan="2">Пароль [<a href="/recovery" class="rs-ps">Parolni unutdingizmi?</a>]:<BR /><input name="pass" type="password" size="23" maxlength="35" class="ps"/></td>
   </tr>
 
   <tr height="5">
-    <td align="center" valign="top"><input type="submit" value="Войти" class="button-blue"/></form></td>
-    <td align="center" valign="top"><form action="/signup" method="post"><input type="submit" value="Регистрация" class="button-blue"/></form></td>
+    <td align="center" valign="top"><input type="submit" value="Kirish" class="button-blue"/></form></td>
+    <td align="center" valign="top"><form action="/signup" method="post"><input type="submit" value="Ro'yhatdan o'tish" class="button-blue"/></form></td>
   </tr>
   
 </table>
