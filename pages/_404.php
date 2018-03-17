@@ -1,16 +1,14 @@
 <?PHP
 ######################################
-# Скрипт Fruit Farm
-# Автор Rufus
-# ICQ: 819-374
-# Skype: Rufus272
+# Muallif: Rufus
+# Tarjimon: MrShahzodbek
 ######################################
-$_OPTIMIZATION["title"] = "Ошибка";
-$_OPTIMIZATION["description"] = "Указанная страница отсутствует на сервере";
-$_OPTIMIZATION["keywords"] = "Ошибка, error, 404, Not Found";
+$_OPTIMIZATION["title"] = "Xatolik";
+$_OPTIMIZATION["description"] = "Mavjud bo'lmagan sahifa";
+$_OPTIMIZATION["keywords"] = "РћС€РёР±РєР°, error, 404, Not Found, Xatolik, Mavjud bo'lmagan sahifa";
 ?>
 <div class="s-bk-lf">
-	<div class="acc-title">404 XATOLIK</div>
+	<div class="acc-title">Error 404!</div>
 </div>
 <div class="silver-bk"><div class="clr"></div>	
 <BR />
