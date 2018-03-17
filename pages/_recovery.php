@@ -58,7 +58,7 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 				
 			}else echo "<center><font color = 'red'><b>EMail xato kiritilgan</b></font></center>";
 		
-		}else echo "<center><font color = 'red'><b>Maxfiy kod xato kiritilgan</b></font></center>";
+		}else echo "<center><font color = 'red'><b>Kod xato kiritilgan</b></font></center>";
 	
 	}
 
@@ -76,7 +76,7 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
     <td align="left" width="250" style="padding-top:20px;">
 	<a href="#" onclick="ResetCaptcha(this);"><img src="captcha.php?rnd=<?=rand(1,10000); ?>"  border="0" style="margin:0;"/></a>
 	</td>
-    <td align="left" width="250" style="padding-top:20px;">Rasmdagi maxfiy kodni kiriting <input name="captcha" type="text" size="25" maxlength="50" /></td>
+    <td align="left" width="250" style="padding-top:20px;">Rasmdagi kodni kiriting <input name="captcha" type="text" size="25" maxlength="50" /></td>
   </tr>
   
   <tr>
