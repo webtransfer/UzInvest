@@ -27,13 +27,13 @@ $user_data = $db->FetchArray();
 					
 						$db->Query("UPDATE db_users_a SET pass = '$new' WHERE id = '$usid'");
 						
-						echo "<center><font color = 'green'><b>Новый пароль успешно установлен</b></font></center><BR />";
+						echo "<center><font color = 'green'><b>РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ СѓСЃРїРµС€РЅРѕ СѓСЃС‚Р°РЅРѕРІР»РµРЅ</b></font></center><BR />";
 					
-					}else echo "<center><font color = 'red'><b>Пароль и повтор пароля не совпадают</b></font></center><BR />";
+					}else echo "<center><font color = 'red'><b>РџР°СЂРѕР»СЊ Рё РїРѕРІС‚РѕСЂ РїР°СЂРѕР»СЏ РЅРµ СЃРѕРІРїР°РґР°СЋС‚</b></font></center><BR />";
 				
-				}else echo "<center><font color = 'red'><b>Новый пароль имеет неверный формат</b></font></center><BR />";
+				}else echo "<center><font color = 'red'><b>РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ РёРјРµРµС‚ РЅРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚</b></font></center><BR />";
 			
-			}else echo "<center><font color = 'red'><b>Старый паполь заполнен неверно</b></font></center><BR />";
+			}else echo "<center><font color = 'red'><b>РЎС‚Р°СЂС‹Р№ РїР°РїРѕР»СЊ Р·Р°РїРѕР»РЅРµРЅ РЅРµРІРµСЂРЅРѕ</b></font></center><BR />";
 		
 	}
 	
@@ -54,11 +54,11 @@ $user_data = $db->FetchArray();
 					
 						$db->Query("UPDATE db_users_a SET plat_pass = '$plat_pass' WHERE id = '$usid'");
 						
-						echo "<center><font color = 'green'><b>Новый платежный пароль успешно установлен</b></font></center><BR />";
+						echo "<center><font color = 'green'><b>РќРѕРІС‹Р№ РїР»Р°С‚РµР¶РЅС‹Р№ РїР°СЂРѕР»СЊ СѓСЃРїРµС€РЅРѕ СѓСЃС‚Р°РЅРѕРІР»РµРЅ</b></font></center><BR />";
 					
 					
 				
-				}else echo "<center><font color = 'red'><b>Платежный пароль имеет неверный формат!</b></font></center><BR />";
+				}else echo "<center><font color = 'red'><b>РџР»Р°С‚РµР¶РЅС‹Р№ РїР°СЂРѕР»СЊ РёРјРµРµС‚ РЅРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚!</b></font></center><BR />";
 			
 			
 		
@@ -90,7 +90,7 @@ $user_data = $db->FetchArray();
 <BR />
 <?php
 if($user_data['plat_pass'] != 0) {
-echo '<font color="green">Вы уже установили платежный пароль! Для его смены обратитесь в службу поддержки!</font><br><br>';
+echo '<font color="green">Р’С‹ СѓР¶Рµ СѓСЃС‚Р°РЅРѕРІРёР»Рё РїР»Р°С‚РµР¶РЅС‹Р№ РїР°СЂРѕР»СЊ! Р”Р»СЏ РµРіРѕ СЃРјРµРЅС‹ РѕР±СЂР°С‚РёС‚РµСЃСЊ РІ СЃР»СѓР¶Р±Сѓ РїРѕРґРґРµСЂР¶РєРё!</font><br><br>';
 } else {
 ?>
 <form action="" method="post">
@@ -98,17 +98,17 @@ echo '<font color="green">Вы уже установили платежный пароль! Для его смены обра
  
   
   <tr>
-    <td><b>To`lov uchun parol(обязательно):</b></td>
+    <td><b>To`lov uchun parol(РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ):</b></td>
     <td align="center"><input type="password" name="plat_pass" /></td>
   </tr>
   <tr>
-    <td align="center" colspan="2"><BR /><input type="submit" value="Сменить пароль" /></td>
+    <td align="center" colspan="2"><BR /><input type="submit" value="РЎРјРµРЅРёС‚СЊ РїР°СЂРѕР»СЊ" /></td>
   </tr>
 </table>
 </form>
 <?php } ?>
 <font color="blue">Parol uzunligi 6 belgidan 20 belgigacha va faqat lotin alifbosida kerak<br></font>
-<font color="red">Платежный пароль должен состоять только из цифр и не длиннее 4-х символов!</font>
+<font color="red">РџР»Р°С‚РµР¶РЅС‹Р№ РїР°СЂРѕР»СЊ РґРѕР»Р¶РµРЅ СЃРѕСЃС‚РѕСЏС‚СЊ С‚РѕР»СЊРєРѕ РёР· С†РёС„СЂ Рё РЅРµ РґР»РёРЅРЅРµРµ 4-С… СЃРёРјРІРѕР»РѕРІ!</font>
 <div class="clr"></div>		
 </div>
 
