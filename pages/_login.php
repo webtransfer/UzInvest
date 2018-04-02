@@ -4,6 +4,8 @@ $_OPTIMIZATION["description"] = "Hisobga kirish";
 $_OPTIMIZATION["keywords"] = "Hisobga kirish";
 
 if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
+
+function shifrlash($str) {  global $set;  $key=$set['shifrlash'];  $str1=md5((string)$str);  $str2=md5($key);  return md5($key.$str1.$str2.$key); }
 ?>
 <div class="s-bk-lf">
 	<div class="acc-title">Kirish</div>
@@ -21,8 +23,9 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 			if($db->NumRows() == 1){
 			
 			$log_data = $db->FetchArray();
+			$md5pass = md5(md5($_POST["pass"]));
 			
-				if(strtolower($log_data["pass"]) == strtolower($_POST["pass"])){
+		if(strtolower($log_data["pass"]) == strtolower($md5pass)){
 				
 					if($log_data["banned"] == 0){
 						
@@ -59,7 +62,7 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
   </tr>
   
   <tr>
-    <td colspan="2">Пароль [<a href="/recovery" class="rs-ps">Parolni unutdingizmi?</a>]:<BR /><input name="pass" type="password" size="23" maxlength="35" class="ps"/></td>
+    <td colspan="2">Parol [<a href="/recovery" class="rs-ps">Parolni unutdingizmi?</a>]:<BR /><input name="pass" type="password" size="23" maxlength="35" class="ps"/></td>
   </tr>
 
   <tr height="5">
