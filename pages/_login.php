@@ -4,8 +4,6 @@ $_OPTIMIZATION["description"] = "Hisobga kirish";
 $_OPTIMIZATION["keywords"] = "Hisobga kirish";
 
 if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
-
-function shifrlash($str) {  global $set;  $key=$set['shifrlash'];  $str1=md5((string)$str);  $str2=md5($key);  return md5($key.$str1.$str2.$key); }
 ?>
 <div class="s-bk-lf">
 	<div class="acc-title">Kirish</div>
