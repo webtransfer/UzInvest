@@ -20,7 +20,7 @@ if(isset($_SESSION["user_id"])){ Header("Location: /account"); return; }
 
 	$login = $func->IsLogin($_POST["login"]);
 	$pass = $func->IsPassword($_POST["pass"]);
-	$md5pass = md5(md5($reg_pass));
+	$md5pass = md5(md5($pass));
 	$rules = isset($_POST["rules"]) ? true : false;
 	$time = time();
 	$ip = $func->UserIP;
