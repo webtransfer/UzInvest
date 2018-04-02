@@ -15,15 +15,17 @@ $user_data = $db->FetchArray();
 <?PHP
 	if(isset($_POST["old"])){
 	
-		$old = $func->IsPassword($_POST["old"]);
-		$new = $func->IsPassword($_POST["new"]);
-		
-		
+		$oldpass = $func->IsPassword($_POST["old"]);
+		$old = md5(md5($oldpass));
+		$newpass = $func->IsPassword($_POST["new"]);
+		$new = md5(md5($newpass));
+		$renewpass = $func->IsPassword($_POST["re_new"]);
+		$renew = md5(md5($renewpass));
 			if($old !== false AND strtolower($old) == strtolower($user_data["pass"])){
 			
 				if($new !== false){
 				
-					if( strtolower($new) == strtolower($_POST["re_new"])){
+					if( strtolower($new) == strtolower($renew)){
 					
 						$db->Query("UPDATE db_users_a SET pass = '$new' WHERE id = '$usid'");
 						
