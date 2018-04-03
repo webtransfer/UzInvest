@@ -1,4 +1,4 @@
-<h2>Авторизация</h2>
+<h2>ГЂГўГІГ®Г°ГЁГ§Г Г¶ГЁГї</h2>
 
 <?PHP
 if(isset($_SESSION["admin"])){ Header("Location: /?menu=admin384"); return; }
@@ -13,7 +13,7 @@ if(isset($_POST["admlogin"])){
 		$_SESSION["admin"] = true;
 		Header("Location: /?menu=admin384");
 		return;
-	}else echo "<center><font color = 'red'><b>Неверно введен логин и/или пароль</b></font></center><BR />";
+	}else echo "<center><font color = 'red'><b>ГЌГҐГўГҐГ°Г­Г® ГўГўГҐГ¤ГҐГ­ Г«Г®ГЈГЁГ­ ГЁ/ГЁГ«ГЁ ГЇГ Г°Г®Г«Гј</b></font></center><BR />";
 	
 }
 
@@ -21,15 +21,15 @@ if(isset($_POST["admlogin"])){
 <form action="" method="post">
 <table width="300" border="0" align="center">
   <tr>
-    <td><b>Логин:</b></td>
+    <td><b>Г‹Г®ГЈГЁГ­:</b></td>
 	<td align="center"><input type="text" name="admlogin" value="" /></td>
   </tr>
   <tr>
-    <td><b>Пароль:</b></td>
+    <td><b>ГЏГ Г°Г®Г«Гј:</b></td>
 	<td align="center"><input type="password" name="admpass" value="" /></td>
   </tr>
   <tr>
-	<td style="padding-top:5px;" align="center" colspan="2"><input type="submit" value="Войти" /></td>
+	<td style="padding-top:5px;" align="center" colspan="2"><input type="submit" value="Kirish" /></td>
   </tr>
 </table>
 </form>
