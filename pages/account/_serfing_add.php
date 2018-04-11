@@ -68,7 +68,7 @@ $(document).ready(function() { // вся мaгия пoсле зaгрузки с�
 //Данные для формы (по умолчанию)
 $title = '';
 $desc = '';
-$url = 'http://';
+$url = 'https://';
 $timer = 20;
 $move = 0;
 $high = 0;
@@ -228,8 +228,7 @@ $db->query("INSERT INTO db_serfing
 `move`,
 `high`,
 `speed`,
-`baner`,
-`baner_url`,
+
 `crev`,
 `price`,
 `status`
@@ -245,8 +244,7 @@ VALUES
 '".$move."', 
 '".$high."',
 '".$speed."', 
-'".$baner."', 
-'".$baner_url."', 
+
 '".$crev."',
 '".$price."',
 '".$status."'
