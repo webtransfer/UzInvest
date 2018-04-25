@@ -1,0 +1,10 @@
+
+@font-face {
+    font-family: 'alexander';
+    src: url('alexander.eot');
+    src: url('alexander.eot?#iefix') format('embedded-opentype'),
+         url('alexander.woff') format('woff'),
+         url('alexander.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

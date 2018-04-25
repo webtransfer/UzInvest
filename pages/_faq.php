@@ -1,0 +1,18 @@
+<?PHP
+$_OPTIMIZATION["title"] = "Инструкция по игре";
+$_OPTIMIZATION["description"] = "Инструкция по игре";
+$_OPTIMIZATION["keywords"] = "Инструкция по игре";
+?>
+<div class="s-bk-lf">
+	<div class="acc-title1">Инструкция</div>
+</div>
+
+<div class="silver-bk0"><div class="clr"></div>
+<br><table style="width: 100%; background-position: 0% 0%; background-size: auto; border-top-color: black; border-left-color: black; border-right-color: black; border-bottom-color: black; border-top-width: 1px; border-left-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-left-style: solid; border-right-style: solid; border-bottom-style: solid; border-collapse: collapse; margin-left: 0px; margin-right: 0px; margin-top: 0px; margin-bottom: 0px; background-attachment: scroll; background-repeat: repeat; background-image: url(&quot;http://fonforsite.ru/_ph/3/2/481498596.png&quot;); background-origin: padding-box; background-clip: border-box;" width="" align=""><tbody><tr><td style="letter-spacing: 0px; word-spacing: 0px; width: 200px; border-top-color: black; border-left-color: black; border-right-color: black; border-bottom-color: black; border-top-width: 1px; border-left-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-left-style: solid; border-right-style: solid; border-bottom-style: solid;" align="center"><p>
+<span style="font-size: 12pt;"><span style="font-size: 10pt;"><strong>Знакомство с игрой</strong></span></span>
+<span style="font-size: 12pt;"><span style="font-size: 10pt;"><br></span></span></p><p><span style="font-size: 12pt;"><span style="font-size: 10pt;"><a href="#"><font color="#006400">Регистрация</font></a></span></span></p><p><span style="font-size: 12pt;"><span style="font-size: 10pt;"><a href="#"><font color="#006400">Внутриигровая валюта</font></a></span></span></p><p><span style="font-size: 12pt;"><span style="font-size: 10pt;"><a href="#"><font color="#006400">Пополнение баланса</font></a></span></span></p><p><span style="font-size: 12pt;"><span style="font-size: 10pt;"><a href="#"><font color="#006400">Вывод средств</font></a></span></span></p><p><span style="font-size: 12pt;"><span style="font-size: 10pt;"><a href="#"><font color="#ff0000">Ответы на частые вопросы</font></a></span></span></p></td><td style="border-top-color: black; border-left-color: black; border-right-color: black; border-bottom-color: black; border-top-width: 1px; border-left-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-left-style: solid; border-right-style: solid; border-bottom-style: solid;"><p><span>«Money-Ferma» - это игра с заработком, в которой нужно покупать саженцы растений, деревьев, а полученные от них плоды продавать в торговой лавке.</span></p><hr><p><span> </span></p><p><span>Игрок может выращивать яблоки, вишни, лимоны, груши, мандарины, тыквы, арбузы а от их продажи получать внутриигровую валюту - кредиты - <span><strong><font color="#0000cd">С</font></strong></span>.</span></p><hr><p><span>Дополнительный заработок можно наладить, приглашая в игру своих друзей и знакомых, а так же любых других людей, получая доход в размере 10% с каждого пополнения внутриигрового баланса.</span></p><hr><p><span> </span></p><p><span>По сути онлайн игра с выводом средств «Money-Ferma» являет собой имитацию фермерского хозяйства, ресурсами которого игрок распоряжается на свое усмотрение.</span></p><hr><p><span>Проект усиленно развивается, мы делаем все для того что бы с нами вам было комфортно и удобно играть, а главное - прибыльно!<br></span></p></td></tr></tbody></table>
+</div><br>
+
+
+
+
