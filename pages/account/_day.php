@@ -25,10 +25,6 @@ Kunlik divedentlarni har 24 soatda bir marta olishingiz mumkin. <BR />
 Divedent ikkilamchi balansga <font color="blue"> so`m </font> miqdorida beriladi. <BR />
 <br>Reklama banneri ustiga bosganingizdan so'ng "DIVEDENT OLISH" tugmasi chiqadi.</center>
 
-
-
-	
-<?PHP
 <?PHP
 $ddel = time() + 1*1*1; // Oraliq vaqt
 $dadd = time(); // Hozirgi vaqt
