@@ -1,51 +1,53 @@
 <?PHP
-$_OPTIMIZATION["title"] = "Mening hisobim - Kunlik bonus";
+$_OPTIMIZATION["title"] = "Kunlik bonus";
 $usid = $_SESSION["user_id"];
 $uname = $_SESSION["user"];
 
-# Bonus sozlamasi
-$bonus_min = 20; //Minimal bonus
+# Настройки бонусов
+$bonus_min = 10; //Minimal bonus
 $bonus_max = 100; //Maksimal bonus
 
 ?>
-<div class="s-bk-lf">
+	<div class="s-bk-lf">
 	<div class="acc-title">Kunlik bonus</div>
 </div>
 <div class="silver-bk">
-<div class="clr"></div>	
+<div class="clr"></div> <br><center>
+Bonus har 24 soatda bir marta beriladi.  <BR />
+Bonus miqdori <font color="#2A8758"><b><?=$bonus_min;?> </b></font> so'mdan <font color="#2A8758"><b><?=$bonus_max;?></b></font> so'mgacha tasodifiy tarzda aniqlanadi.
+<br>Reklama banneri ustiga bosganingizdan so'ng "BONUS OLISH" tugmasi chiqadi.</center>
 
-<BR />
 
-Bonus har 24 soatda bir marta beriladi. <BR />
-Bonus "sotib olish" balansiga <font color="blue"> so`m </font> miqdorida beriladi. <BR />
-Bonus miqdori <font color="green"><b><?=$bonus_min;?> so`mdan</b></font> <font color="green"><b><?=$bonus_max;?> so`mgacha</b></font> <font color="blue"> tasodifiy</font> tarzda beriladi.
-<BR /><BR />
+
+	
 <?PHP
-$ddel = time() + 60*60*24;
+$ddel = time() + 60*60*24; //Keyingi bonus vaqti
 $dadd = time();
+$dabc = $dadd + 259200;
+	
 $db->Query("SELECT COUNT(*) FROM db_bonus_list WHERE user_id = '$usid' AND date_del > '$dadd'");
 
 $hide_form = false;
 
 	if($db->FetchRow() == 0){
 	
-		# Bonus berish
+		# Выдача бонуса
 		if(isset($_POST["bonus"])){
 		
-			$sum = rand($bonus_min, rand($bonus_min, $bonus_max) );
-			
-			# Updating user balance and stat
-			$db->Query("UPDATE db_users_b SET money_b = money_b + '$sum' WHERE id = '$usid'");
-			$db->Query("UPDATE db_users_b SET dailybonus = dailybonus + '$sum' WHERE id = '$usid'");
-			# Updating bonus list
+			$sumrand = rand($bonus_min, rand($bonus_min, $bonus_max) );
+			$sumbonus = $sumrand - 1;
 			
 			
-			$db->Query("INSERT INTO db_bonus_list (user, user_id, sum, date_add, date_del) VALUES ('$uname','$usid','$sum','$dadd','$ddel')");
+			# Зачилсяем юзверю
+			$db->Query("UPDATE db_users_b SET money_p = money_p + '$sumrand' WHERE id = '$usid'");
+			
+			# Вносим запись в список бонусов
+			$db->Query("INSERT INTO db_bonus_list (user, user_id, sum, date_add, date_del) VALUES ('$uname','$usid','$sumrand','$dadd','$ddel')");
 			
 			# Случайная очистка устаревших записей
 			$db->Query("DELETE FROM db_bonus_list WHERE date_del < '$dadd'");
 			
-			echo "<center><font color = 'green'><b>Hisobingizga {$sum} so`m bonus qo`shildi.</b></font></center><BR />";
+			echo "<div align='center' class='alert alert-success'>Sizga {$sumbonus} so'm miqdorida bonus berildi</div>";
 			
 			$hide_form = true;
 			
@@ -55,61 +57,73 @@ $hide_form = false;
 			if(!$hide_form){
 ?>
 
-<form action="" method="post">
-<table width="330" border="0" align="center">
-  <tr>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center"><input type="submit" name="bonus" value="Bonus olish" style="height: 30px; margin-top:10px;"></td>
-  </tr>
+<center><br/>
 
-</table>
-</form>
+<div class="column_3" id="hidden_link" onclick="document.all.hidden_link1.style.display='block';" style="width: 468px;display:yes">
+
+<?php
+include "_banlink.php";
+?>
+<br/>
+</div>
+<div class="column_3" id="hidden_link1" onclick="document.all.hidden_link2.style.display='block';" style="display:none"><br/>
+<form action="" method="post"><input type="submit" name="bonus" value="Bonus Olish" class="btn btn-success"></form></div>
+</center>
+
 
 <?PHP 
 
 			}
 
-	}else echo "<center><font color = 'red'><b>Siz so`nggi 24 soat ichida bonusni olgansiz</b></font></center><BR />"; ?>
+	}else {
+	   $db->Query("SELECT * FROM db_bonus_list WHERE user_id = '$usid' AND date_del > '$dadd'");
+$u_data = $db->FetchArray();
+$time = $u_data['date_del'] - $dadd;
+$hours = floor($time/3600);
+floor($minutes =($time/3600 - $hours)*60);
+$seconds = ceil(($minutes - floor($minutes))*60);
+$min=ceil($minutes)-1;
+	   ?>
 
+<center style="margin: 5px 0;font-size: 18px;color: #f33;"><b id="bonus">Navbatdagi bonusni <?=json_encode($hours);echo ' soat  ';echo json_encode($min);echo ' daqiqa  '; echo json_encode($seconds);echo ' soniyadan  ';?> so'ng olishingiz mumkin</b><script>setInterval(function(){
+$("#bonus").load("# #bonus"); }, 1000); </script></center>
+        <?php
+	}
+?>
 
-
-
-<table cellpadding='3' cellspacing='0' border='0' bordercolor='#336633' align='center' width="99%">
-  <tr>
-    <td colspan="5" align="center"><h1>So`nggi 20ta bonus olganlar</h1></td>
-    </tr>
-  <tr>
-    <td align="center" class="m-tb"><b>ID</b></td>
-    <td align="center" class="m-tb"><b>Foydalanuvchi</b></td>
+<h3 style="text-align:center">
+So'nggi 20 ta bonus:
+</h3>
+<table class="table table-bordered" cellpadding='3' cellspacing='0' align="center" width="97%">  
+<thead><tr>
+	<td align="center" class="m-tb"><b>ID</b></td>
+	<td align="center" class="m-tb"><b>Foydalanuvchi</b></td>
 	<td align="center" class="m-tb"><b>Miqdori</b></td>
-	<td align="center" class="m-tb"><b>Vaqt</b></td>
-  </tr>
+	<td align="center" class="m-tb"><b>Vaqti</b></td>
+</tr></thead>
   <?PHP
   
-  $db->Query("SELECT * FROM db_bonus_list ORDER BY id DESC LIMIT 20");
+  $db->Query("SELECT id, user, sum, date_add FROM db_bonus_list ORDER BY id DESC LIMIT 20");
   
 	if($db->NumRows() > 0){
   
   		while($bon = $db->FetchArray()){
 		
 		?>
-		<tr class="htt">
-    		<td align="center"><?=$bon["id"]; ?></td>
-    		<td align="center"><b><?=$bon["user"]; ?></b></td>
-    		<td align="center"><font color = 'green'><b><?=$bon["sum"]; ?></b></font></td>
-			<td align="center"><?=date("d.m.Y",$bon["date_add"]); ?></td>
-  		</tr>
+		
+	<tr>
+    <td align="center"><?=$bon["id"]; ?></td>
+    <td align="center"><a href="/wall/<?=$bon["user"]; ?>"><?=$bon["user"]; ?></a></td>
+    <td align="center"><?=$bon["sum"]; ?></td>
+	<td align="center"><?=date("d.m.Y - H:i:s",$bon["date_add"]); ?></td>
+  	</tr>
 		<?PHP
 		
 		}
   
-	}else echo '<tr><td align="center" colspan="5">Ro`yhat bo`sh</td></tr>'
+	}else echo '<tr><td align="center" colspan="5">Qayd mavjud emas!</td></tr>'
   ?>
 
-  
 </table>
-
-<div class="clr"></div>		
+<div class="clr"></div>
 </div>
