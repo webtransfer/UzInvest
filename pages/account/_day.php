@@ -29,7 +29,7 @@ Divedent ikkilamchi balansga <font color="blue"> so`m </font> miqdorida beriladi
 $ddel = time() + 1*1*1; // Oraliq vaqt
 $dadd = time(); // Hozirgi vaqt
 $dabc = $dadd - 2592000; // Oxirgi 30 kun
-$db->Query("SELECT COUNT(*) FROM db_bonus_list WHERE user_id = '$usid' AND date_del > '$dadd'");
+$db->Query("SELECT COUNT(*) FROM db_daily_incomes WHERE user_id = '$usid' AND date_del > '$dadd'");
 
 $hide_form = false;
 
@@ -44,10 +44,10 @@ $hide_form = false;
 			$db->Query("UPDATE db_users_b SET money_p = money_p + '$sumrand' WHERE id = '$usid'");
 			
 			# Вносим запись в список бонусов
-			$db->Query("INSERT INTO db_bonus_list (user, user_id, sum, date_add, date_del) VALUES ('$uname','$usid','$sumrand','$dadd','$ddel')");
+			$db->Query("INSERT INTO db_daily_incomes (user, user_id, sum, date_add, date_del) VALUES ('$uname','$usid','$sumrand','$dadd','$ddel')");
 			
 			# Случайная очистка устаревших записей
-			$db->Query("DELETE FROM db_bonus_list WHERE date_del < '$dadd'");
+			$db->Query("DELETE FROM db_daily_incomes WHERE date_del < '$dadd'");
 			
 			echo "<div align='center' class='alert alert-success'>Sizga {$sumrand} so'm miqdorida divedent berildi</div>";
 			
@@ -78,7 +78,7 @@ include "_banlink.php";
 			}
 
 	}else {
-	   $db->Query("SELECT * FROM db_bonus_list WHERE user_id = '$usid' AND date_del > '$dadd'");
+	   $db->Query("SELECT * FROM db_daily_incomes WHERE user_id = '$usid' AND date_del > '$dadd'");
 $u_data = $db->FetchArray();
 $time = $u_data['date_del'] - $dadd;
 $hours = floor($time/3600);
@@ -105,7 +105,7 @@ So'nggi 20 ta divedentlar:
 </tr></thead>
   <?PHP
   
-  $db->Query("SELECT id, user, sum, date_add FROM db_bonus_list ORDER BY id DESC LIMIT 20");
+  $db->Query("SELECT id, user, sum, date_add FROM db_daily_incomes ORDER BY id DESC LIMIT 20");
   
 	if($db->NumRows() > 0){
   
