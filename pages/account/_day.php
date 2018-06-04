@@ -1,5 +1,5 @@
 <?PHP
-$_OPTIMIZATION["title"] = "Kunlik bonus";
+$_OPTIMIZATION["title"] = "Kunlik divedent";
 $usid = $_SESSION["user_id"];
 $uname = $_SESSION["user"];
 
@@ -17,7 +17,7 @@ $aksiya = $db->FetchArray();
 $divedent = $aksiya["a_t"] * $uzhost;
 ?>
 	<div class="s-bk-lf">
-	<div class="acc-title">Kunlik bonus</div>
+	<div class="acc-title">Kunlik divedent</div>
 </div>
 <div class="silver-bk">
 <div class="clr"></div> <br><center>
@@ -91,14 +91,14 @@ $seconds = ceil(($minutes - floor($minutes))*60);
 $min=ceil($minutes)-1;
 	   ?>
 
-<center style="margin: 5px 0;font-size: 18px;color: #f33;"><b id="bonus">Navbatdagi bonusni <?=json_encode($hours);echo ' soat  ';echo json_encode($min);echo ' daqiqa  '; echo json_encode($seconds);echo ' soniyadan  ';?> so'ng olishingiz mumkin</b><script>setInterval(function(){
+<center style="margin: 5px 0;font-size: 18px;color: #f33;"><b id="bonus">Navbatdagi divedentni <?=json_encode($hours);echo ' soat  ';echo json_encode($min);echo ' daqiqa  '; echo json_encode($seconds);echo ' soniyadan  ';?> so'ng olishingiz mumkin</b><script>setInterval(function(){
 $("#bonus").load("# #bonus"); }, 1000); </script></center>
         <?php
 	}
 ?>
 
 <h3 style="text-align:center">
-So'nggi 20 ta bonus:
+So'nggi 20 ta divedentlar:
 </h3>
 <table class="table table-bordered" cellpadding='3' cellspacing='0' align="center" width="97%">  
 <thead><tr>
