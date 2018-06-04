@@ -23,7 +23,7 @@ Bonus miqdori <font color="#2A8758"><b><?=$bonus_min;?> </b></font> so'mdan <fon
 <?PHP
 $ddel = time() + 60*60*24; //Keyingi bonus vaqti
 $dadd = time();
-$dabc = $dadd + 259200;
+$dabc = $dadd - 2592000;
 	
 $db->Query("SELECT COUNT(*) FROM db_bonus_list WHERE user_id = '$usid' AND date_del > '$dadd'");
 
