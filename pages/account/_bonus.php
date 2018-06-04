@@ -4,8 +4,8 @@ $usid = $_SESSION["user_id"];
 $uname = $_SESSION["user"];
 
 # Bonus sozlamasi
-$bonus_min = 20;
-$bonus_max = 100;
+$bonus_min = 20; //Minimal bonus
+$bonus_max = 100; //Maksimal bonus
 
 ?>
 <div class="s-bk-lf">
