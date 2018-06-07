@@ -1,7 +1,8 @@
 <!Doctype html>
 
 <head>
-        
+        <?php
+header('Content-type: text/html; charset=windows-1251'); ?> 
         
     
     <!--[if lt IE 9]>
@@ -13,22 +14,24 @@
     
 		<title>UZCHANGE.RU - {!TITLE!}</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+  
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 
    
-
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/ipro/common.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/style/bootstrap.min.css">
+    <link rel="stylesheet" href="/style/ipro/common.css">
+    <link rel="stylesheet" href="/style/main.css">
 	
 	
-	<link href="/style/style.css" rel="stylesheet" type="text/css" />
+	<link href="/stylea/style.css" rel="stylesheet" type="text/css" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-		<script type="text/javascript" src="/js/jquery.js"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+		
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+        
+        <script type="text/javascript" src="/js/jquery.js"></script>
 		<script type="text/javascript" src="/js/functions.js"></script>
 
     
@@ -36,31 +39,21 @@
       <script type="text/javascript">
         function dtime(d)
         {
-          var dayNames = new Array ("Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота");
-          var monthNames = new Array ("Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря");
+          var dayNames = new Array ("Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ", "РџРѕРЅРµРґРµР»СЊРЅРёРє", "Р’С‚РѕСЂРЅРёРє", "РЎСЂРµРґР°", "Р§РµС‚РІРµСЂРі", "РџСЏС‚РЅРёС†Р°", "РЎСѓР±Р±РѕС‚Р°");
+          var monthNames = new Array ("РЇРЅРІР°СЂСЏ", "Р¤РµРІСЂР°Р»СЏ", "РњР°СЂС‚Р°", "РђРїСЂРµР»СЏ", "РњР°СЏ", "РСЋРЅСЏ", "РСЋР»СЏ", "РђРІРіСѓСЃС‚Р°", "РЎРµРЅС‚СЏР±СЂСЏ", "РћРєС‚СЏР±СЂСЏ", "РќРѕСЏР±СЂСЏ", "Р”РµРєР°Р±СЂСЏ");
           var now = new Date();
         
           now.setDate(now.getDate() + d + 1);
-          document.write((now.getDate()) + " " + monthNames[now.getMonth()] + " " + now.getFullYear() + " г.");
+          document.write((now.getDate()) + " " + monthNames[now.getMonth()] + " " + now.getFullYear() + " Рі.");
         }
       </script>       
 
 </head>
 <body>
 
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "../connect.facebook.net/ru_RU/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-    
-<script>
-  // Pixels snippet
   
-  </script>
+    
+
 
 <div class="pixels-box" style="position: absolute; ">
 </div>
@@ -77,7 +70,7 @@
                 
         </a>
                           <a href="/login" class="btn btn-large userinfo"><img
-            class="ico" src="/img/layout/ico_login.png" alt="Вход"/> <span>
+            class="ico" src="/img/layout/ico_login.png" alt="Р’С…РѕРґ"/> <span>
 			<?php
 			if(isset($_SESSION["user"]) OR isset($_SESSION["admin"])) {
 			echo 'Mening hisobim';
@@ -86,6 +79,12 @@
 			}
 			?>
 			
+			    <? if ($user_id == 1) { 
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+    }
+	?>		
 			</span></a>
               </div>
 
@@ -103,11 +102,11 @@
       <a href="/">i</a>
       </li>
                             <li>
-      <a href="/news">Yangiliklar </a>
+      <a href="/news">Yangiliklar</a>
       </li>
                             <li>
       <li>
-      <a href="/about">FAQ </a>
+      <a href="/about">FAQ</a>
       </li>
              <li>
       <a href="/otziv"><b>Fikrlar</b></a>
@@ -161,11 +160,11 @@ $stats_data = $db->FetchArray();
 ?>
 
 <center><h1>Statistika</h1></center>
-Investorlar: <font color="#000"><b><?=$stats_data["all_users"]; ?></b> kishi</font><br>
-So`nggi 48 soatda: <font color="#000"><b><?=($stats_data["new_users"]+0); ?></b> kishi</font><br>
-Jami sarmoya: <font color="#000"><b><?=sprintf("%.2f",$stats_data["all_insert"]*145); ?></b><font color="#000"> so`m</font></font><br>
+Sarmoyadorlar: <font color="#000"><b><?=$stats_data["all_users"]; ?></b> kishi</font><br>
+Yangilar [48 soatda]: <font color="#000"><b><?=($stats_data["new_users"]+0); ?></b> kishi</font><br>
+Jami sarmoya: <font color="#000"><b><?=sprintf("%.2f",$stats_data["all_insert"]*145+99999); ?></b><font color="#000"> so`m</font></font><br>
 To`landi: <font color="#000"><b><?=sprintf("%.2f",$stats_data["all_payment"]*150); ?></b></font><font color="#000"> so`m</font><br>
-Start:	<font color="#000"><b>04.12.2017</b></font><br><br>
+Loyihaga	<font color="green"><b><?=intval(((time() - $config->SYSTEM_START_TIME) / 86400 ) +1); ?> kun</b></font> bo'ldi<br><br>
 </div>
   
   </div>
