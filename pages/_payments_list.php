@@ -1,9 +1,9 @@
 <?PHP
 ######################################
-# Скрипт Fruit Farm
-# Автор Rufus
-# ICQ: 819-374
-# Skype: Rufus272
+# WT Group
+# Coder: MrShahzodbek
+# Telegram: @MrShahzodbek
+# Github: @MrShahzodbek
 ######################################
 $_OPTIMIZATION["title"] = "So`nggi to`lovlar";
 $_OPTIMIZATION["description"] = "So`nggi to`lovlar ro`yhati";
@@ -44,12 +44,12 @@ $all_pay_sum = 0;
 
 	while($data = $db->FetchArray()){
 	$all_pay ++;
-	$all_pay_sum += $data["sum"];
+	$all_pay_sum += $data["serebro"];
 	?>
 	<tr class="htt">
 	<td align="center"><?=$data["user"]; ?></td>
 	
-    <td align="center"><?=sprintf("%.2f",$data["sum"]*150); ?> so`m</td>
+    <td align="center"><?=sprintf("%.2f",$data["serebro"]); ?> so`m</td>
 	<td align="center"><?=$data["pay_sys"]; ?>: <?=substr($data["purse"],0,-6); ?><font color = 'red'>XXX</font><?=substr($data["purse"],-3); ?></td>
 	<td align="center"><?=date("d.m.Y H:i:s",$data["date_add"]); ?></td>
   	</tr>
@@ -60,14 +60,14 @@ $all_pay_sum = 0;
 ?>
 	<tr bgcolor="#efefef">
 		<td align="center" width="50" class="m-tb" colspan=2>Jami to`lovlar: <?=$all_pay; ?> dona.</td>
-		<td align="center" width="50" class="m-tb" colspan=2>Jami to`lovlar miqdori: <?=sprintf("%.2f",$all_pay_sum)*150; ?> so`m</td>
+		<td align="center" width="50" class="m-tb" colspan=2>Jami to`lovlar miqdori: <?=sprintf("%.2f",$all_pay_sum); ?> so`m</td>
 	</tr>
 </table>
 <BR />
 <?PHP
 
 
-}else echo "<center><b>Выплат нет :(</b></center><BR />";
+}else echo "<center><b>Г‚Г»ГЇГ«Г ГІ Г­ГҐГІ :(</b></center><BR />";
 
 
 ?>
