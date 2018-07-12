@@ -11,7 +11,7 @@
 <?PHP
 
 
-# Выплачено
+# Р’С‹РїР»Р°С‡РµРЅРѕ
 if(isset($_POST["payment"])){
 
 $ret_id = intval($_POST["payment"]);
@@ -24,7 +24,7 @@ $db->Query("SELECT * FROM db_payment WHERE status = '0' AND id = '{$ret_id}'");
 	$user_id = $ret_data["user_id"];
 	$sum = $ret_data["sum"];
 	$serebro = $ret_data["serebro"];
-	# Вставляем запись в выплаты
+	# Р’СЃС‚Р°РІР»СЏРµРј Р·Р°РїРёСЃСЊ РІ РІС‹РїР»Р°С‚С‹
 							$da = time();
 		
 		$db->Query("UPDATE db_users_b SET payment_sum = payment_sum + '$sum' WHERE id = '$user_id'");
@@ -32,13 +32,13 @@ $db->Query("SELECT * FROM db_payment WHERE status = '0' AND id = '{$ret_id}'");
 		$db->Query("UPDATE db_stats SET all_payments = all_payments + '$sum' WHERE id = '1'");
 		$db->Query("UPDATE db_payment SET date_add = '$da' WHERE id = '$ret_id'");
 		
-		echo "<center><b>Выплачено, статистика обновлена</b></center><BR />";
+		echo "<center><b>Р’С‹РїР»Р°С‡РµРЅРѕ, СЃС‚Р°С‚РёСЃС‚РёРєР° РѕР±РЅРѕРІР»РµРЅР°</b></center><BR />";
 		
-	}else echo "<center><b>Заявка не найдена :(</b></center><BR />";
+	}else echo "<center><b>Р—Р°СЏРІРєР° РЅРµ РЅР°Р№РґРµРЅР° :(</b></center><BR />";
 
 }
 
-# Возврат
+# Р’РѕР·РІСЂР°С‚
 if(isset($_POST["return"])){
 
 $ret_id = intval($_POST["return"]);
@@ -55,9 +55,9 @@ $db->Query("SELECT * FROM db_payment WHERE status = '0' AND id = '{$ret_id}'");
 		$db->Query("UPDATE db_users_b SET money_p = money_p + '$serebro' WHERE id = '$user_id'");
 		$db->Query("UPDATE db_payment SET status = '2' WHERE id = '$ret_id'");
 		
-		echo "<center><b>Заявка отменена, средства возвращены</b></center><BR />";
+		echo "<center><b>Р—Р°СЏРІРєР° РѕС‚РјРµРЅРµРЅР°, СЃСЂРµРґСЃС‚РІР° РІРѕР·РІСЂР°С‰РµРЅС‹</b></center><BR />";
 		
-	}else echo "<center><b>Заявка не найдена :(</b></center><BR />";
+	}else echo "<center><b>Р—Р°СЏРІРєР° РЅРµ РЅР°Р№РґРµРЅР° :(</b></center><BR />";
 
 }
 
@@ -71,12 +71,12 @@ if($ast > 0){
 ?>
 <table cellpadding='3' cellspacing='0' border='0' bordercolor='#336633' align='center' width="99%">
   <tr bgcolor="#efefef">
-	<td align="center" class="m-tb">Платежка</td>
-    <td align="center" class="m-tb">Пользователь</td>
-    <td align="center" width="75" class="m-tb">Сумма</td>
-	<td align="center" width="100" class="m-tb">Кошелек</td>
-	<td align="center" width="50" class="m-tb">Вернуть</td>
-	<td align="center" width="50" class="m-tb">Выплачено</td>
+	<td align="center" class="m-tb">РџР»Р°С‚РµР¶РєР°</td>
+    <td align="center" class="m-tb">РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ</td>
+    <td align="center" width="75" class="m-tb">РЎСѓРјРјР°</td>
+	<td align="center" width="100" class="m-tb">РљРѕС€РµР»РµРє</td>
+	<td align="center" width="50" class="m-tb">Р’РµСЂРЅСѓС‚СЊ</td>
+	<td align="center" width="50" class="m-tb">Р’С‹РїР»Р°С‡РµРЅРѕ</td>
   </tr>
 
 <?PHP
@@ -93,7 +93,7 @@ if($ast > 0){
 	
 		<form action="" method="post">
 			<input type="hidden" name="return" value="<?=$data["id"]; ?>" />
-			<input type="submit" value="Вернуть" />
+			<input type="submit" value="RETURN" />
 		</form>
 	
 	</td>
@@ -101,7 +101,7 @@ if($ast > 0){
 	
 		<form action="" method="post">
 			<input type="hidden" name="payment" value="<?=$data["id"]; ?>" />
-			<input type="submit" value="Выплачено" />
+			<input type="submit" value="PAY" />
 		</form>
 	
 	</td>
@@ -115,7 +115,7 @@ if($ast > 0){
 </table>
 <?PHP
 
-}else echo "<center><b>Нет заявок для выплаты</b></center><BR />";
+}else echo "<center><b>РќРµС‚ Р·Р°СЏРІРѕРє РґР»СЏ РІС‹РїР»Р°С‚С‹</b></center><BR />";
 
 ?>
 </div>
