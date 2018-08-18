@@ -22,20 +22,20 @@ $status_array = array( 0 => "Tekshiruvda", 1 => "To`landi", 2 => "Bekor qilindi"
 
 
 
-# Список платежек
+# РЎРїРёСЃРѕРє РїР»Р°С‚РµР¶РµРє
 if(!isset($_GET["pay_id"])){
 
 	if(isset($_POST["sys_pay"])){ Header("Location: /account/payment/".$_POST["sys_pay"]); return; }
 	
 	$db->Query("SELECT * FROM db_pay_systems ORDER BY id DESC");
 
-	if($db->NumRows() == 0){ echo "<center>Нет платежных систем :(</center><BR /><div class='clr'></div></div>	"; return; }
+	if($db->NumRows() == 0){ echo "<center>РќРµС‚ РїР»Р°С‚РµР¶РЅС‹С… СЃРёСЃС‚РµРј :(</center><BR /><div class='clr'></div></div>	"; return; }
 	
 	?>
 	
 	<form action="" method="POST">
 	<center>O`zingizga mos to`lov tizimini tanlang. <BR />
-	<font color="red">Hisobdan mablag`larni yechib olishda 2% xizmat haqi undiriladi!</font><BR /><BR />
+	<font color="red">Hisobdan mablag`larni yechib olishda 5% xizmat haqi undiriladi!</font><BR /><BR />
 		<select name="sys_pay">
 		<?PHP
 			
@@ -62,14 +62,14 @@ return;
 	
 	$db->Query("SELECT * FROM db_pay_systems WHERE id = '$pay_id'");
 	
-	if($db->NumRows() == 0){ echo "<center>Такой платежной системы нет в нашем проекте :(</center><BR /><div class='clr'></div></div>"; return; }
+	if($db->NumRows() == 0){ echo "<center>РўР°РєРѕР№ РїР»Р°С‚РµР¶РЅРѕР№ СЃРёСЃС‚РµРјС‹ РЅРµС‚ РІ РЅР°С€РµРј РїСЂРѕРµРєС‚Рµ :(</center><BR /><div class='clr'></div></div>"; return; }
 	
 	$pdata = $db->FetchArray();
 	$min_ser = $pdata["min_pay"] * $sonfig_site["ser_per_wme"];
 	$ps = $pdata["title"];
 	
 	
-	# Создание заявки на выплату
+	# РЎРѕР·РґР°РЅРёРµ Р·Р°СЏРІРєРё РЅР° РІС‹РїР»Р°С‚Сѓ
 	if(isset($_POST["pp"])){
 	
 		$purse = strval(trim($func->TextClean($_POST["pp"])));
@@ -90,34 +90,34 @@ if($sum <= $user_data["money_p"]){
 
 
 					
-							# Проверяем на существующие заявки
+							# РџСЂРѕРІРµСЂСЏРµРј РЅР° СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ Р·Р°СЏРІРєРё
 							$db->Query("SELECT COUNT(*) FROM db_payment WHERE user_id = '$usid' AND status = 0");
 							if($db->FetchRow() == 0){
 
 
 						
-							# Снимаем с пользователя
+							# РЎРЅРёРјР°РµРј СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 							$db->Query("UPDATE db_users_b SET money_p = money_p - '$sum' WHERE id = '$usid'");
 							
-							# Вставляем запись в выплаты
+							# Р’СЃС‚Р°РІР»СЏРµРј Р·Р°РїРёСЃСЊ РІ РІС‹РїР»Р°С‚С‹
 							$da = time();
 							$dd = $da + 60*60*24*15;
 							$sum_r = round($sum / $sonfig_site["ser_per_wme"], 2);
 							$db->Query("INSERT INTO db_payment (user, user_id, purse, sum, serebro, pay_sys, date_add, date_del) 
 							VALUES ('$usname','$usid','$purse','$sum_r','$sum','$ps','$da','$dd')");
 							
-							echo "<center><font color = 'green'><b>Ваша заявка отправлена в очередь на выполнение</b></font></center><BR />";
+							echo "<center><font color = 'green'><b>Р’Р°С€Р° Р·Р°СЏРІРєР° РѕС‚РїСЂР°РІР»РµРЅР° РІ РѕС‡РµСЂРµРґСЊ РЅР° РІС‹РїРѕР»РЅРµРЅРёРµ</b></font></center><BR />";
 							
-							}else echo "<center><font color = 'red'><b>У вас имеются необработанные заявки. Дождитесь их выполнения.</b></font></center><BR />";
+							}else echo "<center><font color = 'red'><b>РЈ РІР°СЃ РёРјРµСЋС‚СЃСЏ РЅРµРѕР±СЂР°Р±РѕС‚Р°РЅРЅС‹Рµ Р·Р°СЏРІРєРё. Р”РѕР¶РґРёС‚РµСЃСЊ РёС… РІС‹РїРѕР»РЅРµРЅРёСЏ.</b></font></center><BR />";
 						
 					
-					}else echo "<center><font color = 'red'><b>Вы указали больше, чем имеется на вашем счету</b></font></center><BR />";
+					}else echo "<center><font color = 'red'><b>Р’С‹ СѓРєР°Р·Р°Р»Рё Р±РѕР»СЊС€Рµ, С‡РµРј РёРјРµРµС‚СЃСЏ РЅР° РІР°С€РµРј СЃС‡РµС‚Сѓ</b></font></center><BR />";
 				
-				}else echo "<center><font color = 'red'><b>Минимальная сумма для вывода {$min_ser} серебра</b></font></center><BR />";
+				}else echo "<center><font color = 'red'><b>РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° РґР»СЏ РІС‹РІРѕРґР° {$min_ser} СЃРµСЂРµР±СЂР°</b></font></center><BR />";
 			
-			}else echo "<center><font color = 'red'><b>Кошелек должен начинаться с ".$pdata["first_char"]."</b></font></center><BR />";
+			}else echo "<center><font color = 'red'><b>РљРѕС€РµР»РµРє РґРѕР»Р¶РµРЅ РЅР°С‡РёРЅР°С‚СЊСЃСЏ СЃ ".$pdata["first_char"]."</b></font></center><BR />";
 		
-		}else echo "<center><font color = 'red'><b>Кошелек заполнен неверно</b></font></center><BR />";
+		}else echo "<center><font color = 'red'><b>РљРѕС€РµР»РµРє Р·Р°РїРѕР»РЅРµРЅ РЅРµРІРµСЂРЅРѕ</b></font></center><BR />";
 		
 	}
 		
@@ -139,7 +139,7 @@ if($sum <= $user_data["money_p"]){
 	<td><input type="text" name="sum" id="sum" value="<?=$min_ser; ?>" size="15" onkeyup="PaymentSum();" /></td>
   </tr>
   <tr>
-    <td><font color="#000;">Qabul qilasiz <?=$config->VAL; ?></font> [2% xizmat haqisiz]<font color="#000;">:</font> </td>
+    <td><font color="#000;">Qabul qilasiz <?=$config->VAL; ?></font> [5% xizmat haqisiz]<font color="#000;">:</font> </td>
 	<td>
 	<input type="text" name="res" id="res_sum" value="0" size="15" disabled="disabled"/>
 	<input type="hidden" name="per" id="ser_per" value="<?=$sonfig_site["ser_per_wme"]; ?>" disabled="disabled"/></td>
@@ -175,7 +175,7 @@ if($sum <= $user_data["money_p"]){
 		?>
 		<tr class="htt">
     		<td align="center"><?=$ref["serebro"]; ?></td>
-    		<td align="center"><?=sprintf("%.2f",$ref["sum"]*0.97); ?> RUBL</td>
+    		<td align="center"><?=sprintf("%.2f",$ref["sum"]*0.95); ?> RUBL</td>
     		<td align="center"><?=$ref["purse"]; ?></td>
 			<td align="center"><?=date("d.m.Y",$ref["date_add"]); ?></td>
     		<td align="center"><?=$status_array[$ref["status"]]; ?></td>
