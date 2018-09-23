@@ -1,7 +1,7 @@
 <?PHP
 ######################################
-# Скрипт Fruit Farm
-# Автор Rufus
+# РЎРєСЂРёРїС‚ Fruit Farm
+# РђРІС‚РѕСЂ Rufus
 # ICQ: 819-374
 # Skype: Rufus272
 ######################################
@@ -9,11 +9,11 @@
 @ini_set('display_errors', true);
 @ini_set('html_errors', false);
 @ini_set('error_reporting', E_ALL ^ E_NOTICE);
-# Подматываем классы
+# РџРѕРґРјР°С‚С‹РІР°РµРј РєР»Р°СЃСЃС‹
 function __autoload($name){ include("classes/_class.".$name.".php");}
 
 
-# Класс конфига 
+# РљР»Р°СЃСЃ РєРѕРЅС„РёРіР° 
 $config = new config;
 
 //if(!isset($_GET["cron_key"]) OR $_GET["cron_key"] != $config->CronPass) die("Key error");
@@ -24,15 +24,15 @@ $type = "sender";//strval($_GET["type"]);
 
 
 
-# Функции
+# Р¤СѓРЅРєС†РёРё
 $func = new func;
 
-# База данных
+# Р‘Р°Р·Р° РґР°РЅРЅС‹С…
 $db = new db($config->HostDB, $config->UserDB, $config->PassDB, $config->BaseDB);
 
 switch($type){
 
-	case "sender": include("cron_job/_sender.php"); break; // Отправка пользователям
+	case "sender": include("cron_job/_sender.php"); break; // РћС‚РїСЂР°РІРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј
 	
 	
 	default: die("Type not exist"); break;
